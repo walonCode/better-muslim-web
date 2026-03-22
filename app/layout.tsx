@@ -40,8 +40,8 @@ export default function RootLayout({
       className="h-full scroll-smooth antialiased"
       data-scroll-behavior="smooth"
     >
-      <body className='min-h-full bg-[radial-gradient(circle_at_top_left,rgba(184,148,62,0.14),transparent_24%),radial-gradient(circle_at_top_right,rgba(13,122,92,0.16),transparent_22%),linear-gradient(180deg,#fbf7ef_0%,#f4ecdf_100%)] [background-color:#f7f1e6] font-["Avenir_Next","Segoe_UI","Helvetica_Neue",Helvetica,Arial,sans-serif] text-[#163328]'>
-        <div className="flex min-h-screen flex-col">
+      <body className='min-h-full overflow-x-clip bg-[radial-gradient(circle_at_top_left,rgba(184,148,62,0.14),transparent_24%),radial-gradient(circle_at_top_right,rgba(13,122,92,0.16),transparent_22%),linear-gradient(180deg,#fbf7ef_0%,#f4ecdf_100%)] [background-color:#f7f1e6] font-["Avenir_Next","Segoe_UI","Helvetica_Neue",Helvetica,Arial,sans-serif] text-[#163328]'>
+        <div className="flex min-h-screen flex-col overflow-x-clip">
           <SiteHeader />
           <main className="flex-1">
             <RouteTransition>{children}</RouteTransition>
