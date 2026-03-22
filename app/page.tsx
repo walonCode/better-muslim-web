@@ -51,23 +51,25 @@ export default function Home() {
   return (
     <div className="pb-20">
       <Section className="pt-12 md:pt-20">
-        <div className="hero-grid">
+        <div className="grid min-h-[min(54rem,calc(100vh-6rem))] items-center gap-12 max-md:min-h-0 max-md:gap-9 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
           <Reveal className="space-y-8">
-            <div className="eyebrow">Better Muslim</div>
+            <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[#08523e]">
+              Better Muslim
+            </div>
             <div className="space-y-5">
-              <h1 className="hero-title">
+              <h1 className='max-w-[11ch] font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(3.2rem,8vw,6rem)] leading-[0.95] font-bold max-md:max-w-none'>
                 A calmer way to read Quran, study Hadith, and keep learning
                 every day.
               </h1>
-              <p className="hero-copy">
+              <p className="text-[1.02rem] leading-[1.8] text-[#617064]">
                 Better Muslim is a mobile app built for respectful daily use. It
                 brings Quran reading, Hadith browsing, and guided Islamic
                 learning into one focused experience with offline-first behavior
                 and thoughtful reading settings.
               </p>
             </div>
-            <div className="hero-actions">
-              <div className="store-button-row">
+            <div className="grid gap-4 md:grid-cols-[auto_auto] md:items-center md:justify-start">
+              <div className="flex flex-wrap gap-4 max-md:flex-col">
                 {storeButtons.map((button) => (
                   <Button
                     key={button.label}
@@ -87,51 +89,71 @@ export default function Home() {
                   </Button>
                 ))}
               </div>
-              <Link className="secondary-button" href="#features">
+              <Link
+                className="inline-flex min-h-13 w-full items-center justify-center rounded-full border border-[rgba(18,54,37,0.12)] bg-[rgba(255,250,241,0.72)] px-5 py-3 text-sm font-medium text-[#163328] transition-transform duration-200 hover:-translate-y-0.5 md:w-auto"
+                href="#features"
+              >
                 Explore Features
               </Link>
             </div>
-            <div className="hero-points">
+            <div className="grid gap-4">
               {highlights.map((item) => (
-                <p key={item}>{item}</p>
+                <p
+                  key={item}
+                  className="border-l-2 border-[rgba(184,148,62,0.4)] pl-4 text-[#617064]"
+                >
+                  {item}
+                </p>
               ))}
             </div>
           </Reveal>
 
-          <Reveal className="hero-visual" delay={0.08}>
-            <div className="device-frame">
-              <div className="device-glow" />
-              <div className="phone-stack">
-                <div className="phone-showcase">
+          <Reveal className="relative isolate" delay={0.08}>
+            <div className="relative px-5 pb-10 max-md:px-1">
+              <div className="absolute inset-[12%_8%] bg-[radial-gradient(circle,rgba(13,122,92,0.22),transparent_58%)] blur-[48px]" />
+              <div className="relative grid items-center justify-items-center">
+                <div className="relative grid place-items-center">
                   <Image
                     src="/android-phone-hero.png"
                     alt="Better Muslim app shown inside an Android phone mockup"
                     width={1400}
                     height={1400}
                     priority
-                    className="showcase-image"
+                    className="relative z-10 h-auto w-[min(100%,35rem)] drop-shadow-[0_30px_72px_rgba(15,41,31,0.22)] max-md:w-[min(100%,24rem)]"
                   />
                 </div>
-                <Card className="hero-side-panel">
-                  <div className="device-card-top">
+                <Card className="relative z-10 -mt-16 ml-auto mr-0 w-[min(18rem,82%)] rounded-[1.8rem] border-[rgba(18,54,37,0.12)] bg-[rgba(255,252,245,0.82)] p-4 backdrop-blur-[18px] max-md:-mt-6 max-md:w-[min(18rem,96%)] max-md:p-4">
+                  <div className="flex items-start justify-between gap-4">
                     <div>
-                      <p className="device-label">Now reading</p>
-                      <h2>Al-Baqara</h2>
+                      <p className="text-[0.9rem] text-[#617064]">
+                        Now reading
+                      </p>
+                      <h2 className='font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[1.8rem] font-bold'>
+                        Al-Baqara
+                      </h2>
                     </div>
-                    <div className="device-pill">Ad-free</div>
+                    <div className="rounded-full bg-[#dcefe6] px-3 py-2 text-[0.85rem] font-bold text-[#08523e]">
+                      Ad-free
+                    </div>
                   </div>
-                  <div className="device-stats">
-                    <div>
-                      <strong>Quran</strong>
-                      <span>Read by surah or juz</span>
+                  <div className="mt-4 grid gap-4">
+                    <div className="rounded-[1.2rem] bg-[rgba(255,255,255,0.46)] p-4">
+                      <strong className="block text-base">Quran</strong>
+                      <span className="text-[0.94rem] text-[#617064]">
+                        Read by surah or juz
+                      </span>
                     </div>
-                    <div>
-                      <strong>Hadith</strong>
-                      <span>Browse, search, and save</span>
+                    <div className="rounded-[1.2rem] bg-[rgba(255,255,255,0.46)] p-4">
+                      <strong className="block text-base">Hadith</strong>
+                      <span className="text-[0.94rem] text-[#617064]">
+                        Browse, search, and save
+                      </span>
                     </div>
-                    <div>
-                      <strong>Learn</strong>
-                      <span>Salah, Duas, Sunnah, and more</span>
+                    <div className="rounded-[1.2rem] bg-[rgba(255,255,255,0.46)] p-4">
+                      <strong className="block text-base">Learn</strong>
+                      <span className="text-[0.94rem] text-[#617064]">
+                        Salah, Duas, Sunnah, and more
+                      </span>
                     </div>
                   </div>
                 </Card>
@@ -142,23 +164,29 @@ export default function Home() {
       </Section>
 
       <Section id="features" className="pt-8">
-        <Reveal className="section-heading">
-          <div className="eyebrow">Why it stands out</div>
-          <h2>
+        <Reveal className="mx-auto mb-10 max-w-[46rem] text-center max-md:mb-6">
+          <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[#08523e]">
+            Why it stands out
+          </div>
+          <h2 className='mt-2 font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(2.1rem,5vw,3.6rem)] leading-none font-bold'>
             Built around consistent daily use, not a cluttered feature dump.
           </h2>
-          <p>
+          <p className="mt-3 text-[1.02rem] leading-[1.8] text-[#617064]">
             The app already supports the core habits people come back for:
             reading, saving progress, revisiting material, and learning in a
             calmer interface.
           </p>
         </Reveal>
-        <div className="feature-grid">
+        <div className="grid gap-6 md:grid-cols-3">
           {featureCards.map((feature, index) => (
             <Reveal key={feature.title} delay={index * 0.08}>
-              <Card className="feature-card">
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
+              <Card className="min-h-[15rem] p-6 max-md:rounded-[1.35rem] max-md:p-5">
+                <h3 className="mb-3 text-[1.15rem] font-bold">
+                  {feature.title}
+                </h3>
+                <p className="text-[1.02rem] leading-[1.8] text-[#617064]">
+                  {feature.description}
+                </p>
               </Card>
             </Reveal>
           ))}
@@ -166,12 +194,16 @@ export default function Home() {
       </Section>
 
       <Section className="pt-6">
-        <div className="story-grid">
+        <div className="grid gap-8 md:grid-cols-2 max-md:gap-5">
           <Reveal>
-            <Card className="story-card">
-              <div className="eyebrow">Reading experience</div>
-              <h2>Personalized without turning into noise.</h2>
-              <p>
+            <Card className="p-6 max-md:rounded-[1.35rem] max-md:p-5">
+              <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[#08523e]">
+                Reading experience
+              </div>
+              <h2 className='mb-3 mt-2 font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(2.1rem,5vw,3.6rem)] leading-none font-bold'>
+                Personalized without turning into noise.
+              </h2>
+              <p className="text-[1.02rem] leading-[1.8] text-[#617064]">
                 Better Muslim keeps the experience adaptable with theme
                 controls, Arabic and English font sizing, and translation or
                 transliteration visibility settings.
@@ -179,9 +211,11 @@ export default function Home() {
             </Card>
           </Reveal>
           <Reveal delay={0.08}>
-            <Card className="story-card accent-card">
-              <div className="eyebrow">Real product depth</div>
-              <ul className="story-list">
+            <Card className="bg-[linear-gradient(135deg,rgba(13,122,92,0.08),rgba(184,148,62,0.08)),rgba(255,252,245,0.86)] p-6 max-md:rounded-[1.35rem] max-md:p-5">
+              <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[#08523e]">
+                Real product depth
+              </div>
+              <ul className="mt-4 grid gap-4 text-[#617064]">
                 <li>Ayah bookmarks and sharing</li>
                 <li>Hadith bookmarks, search, and continue reading</li>
                 <li>
