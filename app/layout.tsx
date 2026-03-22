@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bettermuslim.app"),
   title: {
     default: "Better Muslim | Quran, Hadith & Islamic Learning",
     template: "%s | Better Muslim",
@@ -11,9 +12,9 @@ export const metadata: Metadata = {
   description:
     "Better Muslim brings Quran reading, Hadith study, and structured Islamic learning into one calm, offline-first mobile experience.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/icon.png",
     apple: "/apple-icon.png",
-    shortcut: "/favicon.ico",
+    shortcut: "/icon.png",
   },
   openGraph: {
     title: "Better Muslim | Quran, Hadith & Islamic Learning",
