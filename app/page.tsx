@@ -69,6 +69,8 @@ const highlights = [
   "Light, dark, and system themes with reading controls built in",
 ];
 
+const trustItems = ["No account required", "Offline-first", "Ad-free"];
+
 const storeButtons = [
   {
     label: "Google Play",
@@ -85,7 +87,20 @@ const storeButtons = [
 export default function Home() {
   return (
     <div className="pb-20">
-      <Section className="pt-12 md:pt-20">
+      <Section className="pt-8 md:pt-10">
+        <Reveal className="mb-7 flex justify-center md:mb-10">
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {trustItems.map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-[rgba(18,54,37,0.14)] bg-[rgba(255,255,255,0.62)] px-3 py-1 text-[0.74rem] font-semibold text-[#4e5d52]"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        </Reveal>
+
         <div className="grid min-h-[min(54rem,calc(100vh-6rem))] items-center gap-10 max-md:min-h-0 max-md:gap-9 md:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)]">
           <Reveal className="space-y-8">
             <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[#08523e]">
@@ -93,14 +108,12 @@ export default function Home() {
             </div>
             <div className="space-y-5">
               <h1 className='max-w-[11ch] font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(3.2rem,8vw,6rem)] leading-[0.95] font-bold max-md:max-w-none'>
-                A calmer way to read Quran, study Hadith, and keep learning
-                every day.
+                Quran, Hadith, and learning in one calm daily app.
               </h1>
               <p className="text-[1.02rem] leading-[1.8] text-[#617064]">
-                Better Muslim is a mobile app built for respectful daily use. It
-                brings Quran reading, Hadith browsing, and guided Islamic
-                learning into one focused experience with offline-first behavior
-                and thoughtful reading settings.
+                Better Muslim keeps your core Islamic reading and study flow in
+                one place with offline-first access and thoughtful reading
+                controls.
               </p>
             </div>
             <div className="grid gap-4 md:grid-cols-[auto_auto] md:items-center md:justify-start">
@@ -158,7 +171,7 @@ export default function Home() {
               <div className="absolute bottom-[18%] right-[6%] h-48 w-48 rounded-full border-[5px] border-[rgba(184,148,62,0.24)] max-md:hidden" />
               <div className="relative grid min-h-[38rem] items-center justify-items-center max-md:min-h-[28rem]">
                 <Float
-                  className="absolute left-[8%] top-[10%] z-20 hidden lg:block xl:left-[6%]"
+                  className="absolute left-[8%] top-[10%] z-20 hidden lg:block xl:left-[6%] max-[1400px]:pointer-events-none max-[1400px]:scale-95 max-[1400px]:opacity-0"
                   delay={0.2}
                   y={10}
                 >
@@ -172,7 +185,7 @@ export default function Home() {
                   </div>
                 </Float>
                 <Float
-                  className="absolute right-[10%] top-[7%] z-20 hidden lg:block xl:right-[8%]"
+                  className="absolute right-[10%] top-[7%] z-20 hidden lg:block xl:right-[8%] max-[1400px]:pointer-events-none max-[1400px]:scale-95 max-[1400px]:opacity-0"
                   delay={0.7}
                   y={12}
                 >
@@ -186,7 +199,7 @@ export default function Home() {
                   </div>
                 </Float>
                 <Float
-                  className="absolute left-[6%] bottom-[14%] z-20 hidden lg:block xl:left-[4%]"
+                  className="absolute left-[6%] bottom-[14%] z-20 hidden lg:block xl:left-[4%] max-[1400px]:pointer-events-none max-[1400px]:scale-95 max-[1400px]:opacity-0"
                   delay={1.1}
                   y={9}
                 >
@@ -200,7 +213,7 @@ export default function Home() {
                   </div>
                 </Float>
                 <Float
-                  className="absolute bottom-[24%] right-[6%] z-20 hidden lg:block xl:right-[4%]"
+                  className="absolute bottom-[24%] right-[6%] z-20 hidden lg:block xl:right-[4%] max-[1400px]:pointer-events-none max-[1400px]:scale-95 max-[1400px]:opacity-0"
                   delay={1.4}
                   y={11}
                 >
@@ -211,7 +224,7 @@ export default function Home() {
                   </div>
                 </Float>
                 <Float
-                  className="absolute right-[18%] bottom-[3%] z-20 hidden lg:block xl:right-[16%]"
+                  className="absolute right-[18%] bottom-[3%] z-20 hidden lg:block xl:right-[16%] max-[1400px]:pointer-events-none max-[1400px]:scale-95 max-[1400px]:opacity-0"
                   delay={1.8}
                   y={10}
                 >
@@ -230,10 +243,11 @@ export default function Home() {
                   y={8}
                 >
                   <Image
-                    src="/app_image_cutout.png"
+                    src="/app_image_cutout.webp"
                     alt="Better Muslim app hero image shown on an Android phone"
                     width={1000}
                     height={1400}
+                    sizes="(max-width: 768px) 85vw, (max-width: 1280px) 42vw, 39rem"
                     priority
                     className="relative z-10 h-auto w-[min(100%,39rem)] drop-shadow-[0_34px_60px_rgba(15,41,31,0.2)] max-md:w-[min(100%,24rem)]"
                   />
