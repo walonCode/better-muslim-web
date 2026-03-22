@@ -49,7 +49,7 @@ export default function SupportPage() {
         </Reveal>
 
         <Reveal delay={0.08}>
-          <Card className="grid items-center gap-6 p-6 md:grid-cols-[minmax(0,1fr)_auto]">
+          <Card className="grid items-center gap-6 p-6 transition-transform duration-300 hover:-translate-y-1 md:grid-cols-[minmax(0,1fr)_auto]">
             <div>
               <p className="text-[0.8rem] font-bold uppercase tracking-[0.12em] text-[#08523e]">
                 Contact email
@@ -72,7 +72,7 @@ export default function SupportPage() {
 
         <div className="grid items-start gap-8 md:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)]">
           <Reveal delay={0.12}>
-            <Card className="p-6">
+            <Card className="p-6 transition-transform duration-300 hover:-translate-y-1">
               <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[#08523e]">
                 How We Can Help
               </div>
@@ -104,7 +104,7 @@ export default function SupportPage() {
           </Reveal>
 
           <Reveal delay={0.18}>
-            <Card className="p-6">
+            <Card className="p-6 transition-transform duration-300 hover:-translate-y-1">
               <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[#08523e]">
                 Before You Email
               </div>

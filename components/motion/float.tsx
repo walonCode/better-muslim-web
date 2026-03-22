@@ -2,15 +2,15 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
-import { cn } from "@/lib/utils";
 
-type RevealProps = {
+type FloatProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
+  y?: number;
 };
 
-export function Reveal({ children, className, delay = 0 }: RevealProps) {
+export function Float({ children, className, delay = 0, y = 10 }: FloatProps) {
   const shouldReduceMotion = useReducedMotion();
 
   if (shouldReduceMotion) {
@@ -19,14 +19,13 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
 
   return (
     <motion.div
-      className={cn(className)}
-      initial={{ opacity: 0, y: 28, scale: 0.97, filter: "blur(10px)" }}
-      whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-      viewport={{ once: true, amount: 0.2 }}
+      className={className}
+      animate={{ y: [0, -y, 0] }}
       transition={{
-        duration: 0.7,
+        duration: 6,
         delay,
-        ease: [0.16, 1, 0.3, 1],
+        repeat: Number.POSITIVE_INFINITY,
+        ease: "easeInOut",
       }}
     >
       {children}

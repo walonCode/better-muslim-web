@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Float } from "@/components/motion/float";
 import { Reveal } from "@/components/motion/reveal";
 import { Section } from "@/components/section";
 import { Button } from "@/components/ui/button";
@@ -156,44 +157,78 @@ export default function Home() {
               <div className="absolute left-[6%] top-[18%] h-32 w-32 rounded-full border-[5px] border-[rgba(13,122,92,0.18)] bg-[rgba(220,239,230,0.28)] max-md:hidden" />
               <div className="absolute bottom-[18%] right-[6%] h-48 w-48 rounded-full border-[5px] border-[rgba(184,148,62,0.24)] max-md:hidden" />
               <div className="relative grid min-h-[38rem] items-center justify-items-center max-md:min-h-[28rem]">
-                <div className="absolute left-[8%] top-[10%] z-20 hidden rounded-[1.25rem] border border-[rgba(18,54,37,0.08)] bg-white px-5 py-3 shadow-[0_16px_32px_rgba(15,41,31,0.08)] lg:block xl:left-[6%]">
-                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[#9aa39c]">
-                    Continue reading
-                  </p>
-                  <p className="mt-1 text-[1.05rem] font-semibold text-[#163328]">
-                    Al-Baqara
-                  </p>
-                </div>
-                <div className="absolute right-[10%] top-[7%] z-20 hidden rounded-[1.25rem] border border-[rgba(18,54,37,0.08)] bg-white px-5 py-3 shadow-[0_16px_32px_rgba(15,41,31,0.08)] lg:block xl:right-[8%]">
-                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[#9aa39c]">
-                    Saved on device
-                  </p>
-                  <p className="mt-1 text-[1.05rem] font-semibold text-[#163328]">
-                    Offline-first
-                  </p>
-                </div>
-                <div className="absolute left-[6%] bottom-[14%] z-20 hidden rounded-[1.25rem] border border-[rgba(18,54,37,0.08)] bg-white px-5 py-3 shadow-[0_16px_32px_rgba(15,41,31,0.08)] lg:block xl:left-[4%]">
-                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[#9aa39c]">
-                    Learning hub
-                  </p>
-                  <p className="mt-1 text-[1.05rem] font-semibold text-[#163328]">
-                    Quran, Hadith, Learn
-                  </p>
-                </div>
-                <div className="absolute bottom-[24%] right-[6%] z-20 hidden rounded-[1.25rem] border border-[rgba(18,54,37,0.08)] bg-white px-5 py-3 shadow-[0_16px_32px_rgba(15,41,31,0.08)] lg:block xl:right-[4%]">
-                  <p className="text-[0.95rem] font-medium text-[#163328]">
-                    Offline-first reading
-                  </p>
-                </div>
-                <div className="absolute right-[18%] bottom-[3%] z-20 hidden rounded-[1.25rem] border border-[rgba(18,54,37,0.08)] bg-white px-5 py-3 shadow-[0_16px_32px_rgba(15,41,31,0.08)] lg:block xl:right-[16%]">
-                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[#9aa39c]">
-                    Reading controls
-                  </p>
-                  <p className="mt-1 text-[1.05rem] font-semibold text-[#163328]">
-                    Theme and font size
-                  </p>
-                </div>
-                <div className="relative grid place-items-center">
+                <Float
+                  className="absolute left-[8%] top-[10%] z-20 hidden lg:block xl:left-[6%]"
+                  delay={0.2}
+                  y={10}
+                >
+                  <div className="rounded-[1.25rem] border border-[rgba(18,54,37,0.08)] bg-white px-5 py-3 shadow-[0_16px_32px_rgba(15,41,31,0.08)]">
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[#9aa39c]">
+                      Continue reading
+                    </p>
+                    <p className="mt-1 text-[1.05rem] font-semibold text-[#163328]">
+                      Al-Baqara
+                    </p>
+                  </div>
+                </Float>
+                <Float
+                  className="absolute right-[10%] top-[7%] z-20 hidden lg:block xl:right-[8%]"
+                  delay={0.7}
+                  y={12}
+                >
+                  <div className="rounded-[1.25rem] border border-[rgba(18,54,37,0.08)] bg-white px-5 py-3 shadow-[0_16px_32px_rgba(15,41,31,0.08)]">
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[#9aa39c]">
+                      Saved on device
+                    </p>
+                    <p className="mt-1 text-[1.05rem] font-semibold text-[#163328]">
+                      Offline-first
+                    </p>
+                  </div>
+                </Float>
+                <Float
+                  className="absolute left-[6%] bottom-[14%] z-20 hidden lg:block xl:left-[4%]"
+                  delay={1.1}
+                  y={9}
+                >
+                  <div className="rounded-[1.25rem] border border-[rgba(18,54,37,0.08)] bg-white px-5 py-3 shadow-[0_16px_32px_rgba(15,41,31,0.08)]">
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[#9aa39c]">
+                      Learning hub
+                    </p>
+                    <p className="mt-1 text-[1.05rem] font-semibold text-[#163328]">
+                      Quran, Hadith, Learn
+                    </p>
+                  </div>
+                </Float>
+                <Float
+                  className="absolute bottom-[24%] right-[6%] z-20 hidden lg:block xl:right-[4%]"
+                  delay={1.4}
+                  y={11}
+                >
+                  <div className="rounded-[1.25rem] border border-[rgba(18,54,37,0.08)] bg-white px-5 py-3 shadow-[0_16px_32px_rgba(15,41,31,0.08)]">
+                    <p className="text-[0.95rem] font-medium text-[#163328]">
+                      Offline-first reading
+                    </p>
+                  </div>
+                </Float>
+                <Float
+                  className="absolute right-[18%] bottom-[3%] z-20 hidden lg:block xl:right-[16%]"
+                  delay={1.8}
+                  y={10}
+                >
+                  <div className="rounded-[1.25rem] border border-[rgba(18,54,37,0.08)] bg-white px-5 py-3 shadow-[0_16px_32px_rgba(15,41,31,0.08)]">
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[#9aa39c]">
+                      Reading controls
+                    </p>
+                    <p className="mt-1 text-[1.05rem] font-semibold text-[#163328]">
+                      Theme and font size
+                    </p>
+                  </div>
+                </Float>
+                <Float
+                  className="relative grid place-items-center"
+                  delay={0.3}
+                  y={8}
+                >
                   <Image
                     src="/app_image_cutout.png"
                     alt="Better Muslim app hero image shown on an Android phone"
@@ -202,7 +237,7 @@ export default function Home() {
                     priority
                     className="relative z-10 h-auto w-[min(100%,39rem)] drop-shadow-[0_34px_60px_rgba(15,41,31,0.2)] max-md:w-[min(100%,24rem)]"
                   />
-                </div>
+                </Float>
               </div>
             </div>
           </Reveal>
@@ -226,7 +261,7 @@ export default function Home() {
         <div className="grid gap-6 md:grid-cols-3">
           {featureCards.map((feature, index) => (
             <Reveal key={feature.title} delay={index * 0.08}>
-              <Card className="min-h-[15rem] p-6 max-md:rounded-[1.35rem] max-md:p-5">
+              <Card className="min-h-[15rem] p-6 transition-transform duration-300 hover:-translate-y-1.5 max-md:rounded-[1.35rem] max-md:p-5">
                 <h3 className="mb-3 text-[1.15rem] font-bold">
                   {feature.title}
                 </h3>
@@ -242,7 +277,7 @@ export default function Home() {
       <Section className="pt-6">
         <div className="grid gap-8 md:grid-cols-2 max-md:gap-5">
           <Reveal>
-            <Card className="p-6 max-md:rounded-[1.35rem] max-md:p-5">
+            <Card className="p-6 transition-transform duration-300 hover:-translate-y-1.5 max-md:rounded-[1.35rem] max-md:p-5">
               <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[#08523e]">
                 Reading experience
               </div>
@@ -257,7 +292,7 @@ export default function Home() {
             </Card>
           </Reveal>
           <Reveal delay={0.08}>
-            <Card className="bg-[linear-gradient(135deg,rgba(13,122,92,0.08),rgba(184,148,62,0.08)),rgba(255,252,245,0.86)] p-6 max-md:rounded-[1.35rem] max-md:p-5">
+            <Card className="bg-[linear-gradient(135deg,rgba(13,122,92,0.08),rgba(184,148,62,0.08)),rgba(255,252,245,0.86)] p-6 transition-transform duration-300 hover:-translate-y-1.5 max-md:rounded-[1.35rem] max-md:p-5">
               <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[#08523e]">
                 Real product depth
               </div>
