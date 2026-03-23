@@ -7,10 +7,21 @@ type FloatProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
+  duration?: number;
+  rotate?: number;
+  x?: number;
   y?: number;
 };
 
-export function Float({ children, className, delay = 0, y = 10 }: FloatProps) {
+export function Float({
+  children,
+  className,
+  delay = 0,
+  duration = 6,
+  rotate = 0,
+  x = 0,
+  y = 10,
+}: FloatProps) {
   const shouldReduceMotion = useReducedMotion();
 
   if (shouldReduceMotion) {
@@ -20,9 +31,13 @@ export function Float({ children, className, delay = 0, y = 10 }: FloatProps) {
   return (
     <motion.div
       className={className}
-      animate={{ y: [0, -y, 0] }}
+      animate={{
+        x: x ? [0, x, 0] : 0,
+        y: [0, -y, 0],
+        rotate: rotate ? [0, rotate, 0] : 0,
+      }}
       transition={{
-        duration: 6,
+        duration,
         delay,
         repeat: Number.POSITIVE_INFINITY,
         ease: "easeInOut",

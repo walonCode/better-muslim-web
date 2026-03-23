@@ -93,11 +93,55 @@ export default function Home() {
           <Reveal className="relative isolate overflow-x-clip" delay={0.08}>
             <div className="relative px-2 py-6 max-md:px-0">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.7),transparent_62%)]" />
-              <div className="absolute left-1/2 top-1/2 h-[20rem] w-[20rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(22,51,40,0.12)] max-md:h-[16rem] max-md:w-[16rem]" />
-              <div className="absolute left-1/2 top-1/2 h-[26rem] w-[26rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(22,51,40,0.08)] max-md:h-[21rem] max-md:w-[21rem]" />
-              <div className="absolute left-1/2 top-1/2 h-[31rem] w-[31rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(22,51,40,0.05)] max-md:h-[25rem] max-md:w-[25rem]" />
-              <div className="absolute left-[6%] top-[18%] h-32 w-32 rounded-full border-[5px] border-[rgba(13,122,92,0.18)] bg-[rgba(220,239,230,0.28)] max-md:hidden" />
-              <div className="absolute bottom-[18%] right-[6%] h-48 w-48 rounded-full border-[5px] border-[rgba(184,148,62,0.24)] max-md:hidden" />
+              <Float
+                className="absolute left-1/2 top-1/2 h-[28rem] w-[22rem] -translate-x-1/2 -translate-y-[52%] rounded-[4rem] bg-[linear-gradient(180deg,rgba(255,251,244,0.94),rgba(234,244,238,0.84))] shadow-[0_40px_90px_rgba(15,41,31,0.08)] lg:w-[20rem] xl:w-[22rem] max-md:h-[22rem] max-md:w-[17rem]"
+                delay={0.15}
+                duration={9}
+                x={8}
+                y={12}
+              >
+                <div className="h-full w-full" />
+              </Float>
+              <Float
+                className="absolute left-1/2 top-1/2 h-[24rem] w-[24rem] -translate-x-[82%] -translate-y-[62%] rotate-[-16deg] rounded-[4.5rem] border border-[rgba(18,54,37,0.08)] bg-[linear-gradient(135deg,rgba(220,239,230,0.42),rgba(255,255,255,0.12))] lg:h-[22rem] lg:w-[18rem] xl:h-[24rem] xl:w-[20rem] max-md:h-[18rem] max-md:w-[18rem]"
+                delay={0.5}
+                duration={10}
+                rotate={3}
+                x={10}
+                y={14}
+              >
+                <div className="h-full w-full" />
+              </Float>
+              <Float
+                className="absolute left-1/2 top-1/2 h-[17rem] w-[28rem] -translate-x-[8%] -translate-y-[14%] rotate-[14deg] rounded-[3rem] border border-[rgba(184,148,62,0.16)] bg-[linear-gradient(135deg,rgba(255,245,221,0.7),rgba(255,255,255,0.1))] lg:h-[15rem] lg:w-[22rem] xl:h-[17rem] xl:w-[25rem] max-md:h-[12rem] max-md:w-[20rem]"
+                delay={0.8}
+                duration={11}
+                rotate={-2}
+                x={-10}
+                y={10}
+              >
+                <div className="h-full w-full" />
+              </Float>
+              <Float
+                className="absolute left-[5%] top-[14%] h-28 w-36 rotate-[-12deg] rounded-[2rem] border border-[rgba(13,122,92,0.16)] bg-[rgba(220,239,230,0.34)] max-md:hidden"
+                delay={0.3}
+                duration={8}
+                rotate={4}
+                x={6}
+                y={8}
+              >
+                <div className="h-full w-full" />
+              </Float>
+              <Float
+                className="absolute bottom-[16%] right-[6%] h-24 w-44 rotate-[18deg] rounded-[2.2rem] border border-[rgba(184,148,62,0.2)] bg-[rgba(255,248,230,0.52)] max-md:hidden"
+                delay={1}
+                duration={9}
+                rotate={-3}
+                x={-7}
+                y={9}
+              >
+                <div className="h-full w-full" />
+              </Float>
               <div className="relative grid min-h-[38rem] items-center justify-items-center max-md:min-h-[28rem]">
                 <Float
                   className="absolute left-[8%] top-[10%] z-20 hidden lg:block xl:left-[6%] max-[1400px]:pointer-events-none max-[1400px]:scale-95 max-[1400px]:opacity-0"
@@ -169,16 +213,19 @@ export default function Home() {
                 <Float
                   className="relative grid place-items-center"
                   delay={0.3}
-                  y={8}
+                  duration={7}
+                  rotate={1.6}
+                  x={5}
+                  y={14}
                 >
                   <Image
-                    src="/app_image_cutout.webp"
+                    src="/phone_image_transparent.png"
                     alt="Better Muslim app hero image shown on an Android phone"
                     width={1000}
-                    height={1400}
-                    sizes="(max-width: 768px) 85vw, (max-width: 1280px) 42vw, 39rem"
+                    height={1200}
+                    sizes="(max-width: 768px) 80vw, (max-width: 1280px) 40vw, 35rem"
                     priority
-                    className="relative z-10 h-auto w-[min(100%,39rem)] drop-shadow-[0_34px_60px_rgba(15,41,31,0.2)] max-md:w-[min(100%,24rem)]"
+                    className="relative z-10 h-auto w-[min(100%,35rem)] drop-shadow-[0_34px_60px_rgba(15,41,31,0.2)] max-md:w-[min(100%,22rem)]"
                   />
                 </Float>
               </div>
