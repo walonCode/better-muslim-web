@@ -108,7 +108,7 @@ Set these environment variables before using the waitlist:
 ```bash
 AIRTABLE_TOKEN=your_airtable_personal_access_token
 AIRTABLE_BASE_ID=appXXXXXXXXXXXXXX
-AIRTABLE_TABLE_NAME=Waitlist
+AIRTABLE_TABLE_NAME=your-table-name
 ```
 
 Recommended Airtable fields:
