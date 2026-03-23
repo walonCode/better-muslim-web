@@ -26,8 +26,17 @@ const buttonVariants = cva(
   },
 );
 
-type ButtonProps = ComponentPropsWithoutRef<"a"> &
+type ButtonAnchorProps = {
+  href: string;
+} & ComponentPropsWithoutRef<"a"> &
   VariantProps<typeof buttonVariants>;
+
+type ButtonElementProps = {
+  href?: undefined;
+} & ComponentPropsWithoutRef<"button"> &
+  VariantProps<typeof buttonVariants>;
+
+type ButtonProps = ButtonAnchorProps | ButtonElementProps;
 
 export function Button({
   className,
@@ -35,10 +44,11 @@ export function Button({
   fullWidth,
   ...props
 }: ButtonProps) {
-  return (
-    <a
-      className={cn(buttonVariants({ variant, fullWidth }), className)}
-      {...props}
-    />
-  );
+  const buttonClassName = cn(buttonVariants({ variant, fullWidth }), className);
+
+  if ("href" in props && typeof props.href === "string") {
+    return <a className={buttonClassName} {...props} />;
+  }
+
+  return <button className={buttonClassName} {...props} />;
 }

@@ -4,46 +4,12 @@ import Link from "next/link";
 import { Float } from "@/components/motion/float";
 import { Reveal } from "@/components/motion/reveal";
 import { Section } from "@/components/section";
-import { Button } from "@/components/ui/button";
+import { StoreCta } from "@/components/store-cta";
 import { Card } from "@/components/ui/card";
 
 export const metadata: Metadata = {
   title: "Better Muslim",
 };
-
-function GooglePlayIcon() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      className="h-6 w-6"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M3.5 2.5L13.8 12 3.5 21.5" fill="#34A853" />
-      <path
-        d="M13.8 12 17.2 8.9 21 11.05c.8.45.8 1.45 0 1.9L17.2 15.1 13.8 12Z"
-        fill="#FBBC04"
-      />
-      <path d="M3.5 2.5 17.2 8.9 13.8 12 3.5 2.5Z" fill="#4285F4" />
-      <path d="M3.5 21.5 13.8 12 17.2 15.1 3.5 21.5Z" fill="#EA4335" />
-    </svg>
-  );
-}
-
-function AppStoreIcon() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      className="h-6 w-6"
-      fill="currentColor"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M16.84 12.07c.03 2.63 2.3 3.51 2.33 3.52-.02.06-.36 1.24-1.18 2.45-.71 1.05-1.45 2.09-2.61 2.11-1.14.02-1.5-.68-2.79-.68s-1.69.66-2.77.7c-1.12.04-1.98-1.12-2.7-2.16-1.47-2.13-2.6-6.03-1.09-8.65.75-1.3 2.09-2.12 3.55-2.14 1.11-.02 2.16.75 2.79.75.62 0 1.8-.93 3.03-.79.52.02 1.98.21 2.92 1.58-.07.04-1.74 1.01-1.72 3.31ZM15.65 4.55c.59-.71 1-1.7.89-2.68-.85.03-1.88.57-2.49 1.28-.55.63-1.03 1.64-.9 2.6.95.07 1.91-.48 2.5-1.2Z" />
-    </svg>
-  );
-}
 
 const featureCards = [
   {
@@ -70,19 +36,6 @@ const highlights = [
 ];
 
 const trustItems = ["No account required", "Offline-first", "Ad-free"];
-
-const storeButtons = [
-  {
-    label: "Google Play",
-    className: "store-button store-button-primary",
-    icon: GooglePlayIcon,
-  },
-  {
-    label: "App Store",
-    className: "store-button",
-    icon: AppStoreIcon,
-  },
-];
 
 export default function Home() {
   return (
@@ -117,31 +70,7 @@ export default function Home() {
               </p>
             </div>
             <div className="grid gap-4 md:grid-cols-[auto_auto] md:items-center md:justify-start">
-              <div className="flex flex-wrap gap-4 max-md:flex-col">
-                {storeButtons.map((button) => (
-                  <Button
-                    key={button.label}
-                    href="/"
-                    aria-disabled="true"
-                    variant={
-                      button.className.includes("primary")
-                        ? "storePrimary"
-                        : "store"
-                    }
-                  >
-                    <span
-                      className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[rgba(255,255,255,0.16)] text-current"
-                      aria-hidden="true"
-                    >
-                      <button.icon />
-                    </span>
-                    <span>
-                      {/*<small>Download on</small>*/}
-                      <strong>{button.label}</strong>
-                    </span>
-                  </Button>
-                ))}
-              </div>
+              <StoreCta />
               <Link
                 className="inline-flex min-h-13 w-full items-center justify-center rounded-full border border-[rgba(18,54,37,0.12)] bg-[rgba(255,250,241,0.72)] px-5 py-3 text-sm font-medium text-[#163328] transition-transform duration-200 hover:-translate-y-0.5 md:w-auto"
                 href="#features"
