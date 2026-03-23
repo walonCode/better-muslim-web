@@ -13,14 +13,14 @@ export default function PrivacyPage() {
     >
       <section>
         <h2>Effective date</h2>
-        <p>March 22, 2026</p>
+        <p>March 23, 2026</p>
       </section>
 
       <section>
         <h2>What Better Muslim collects</h2>
         <p>
           Better Muslim is designed to work without requiring account creation
-          or direct submission of personal profile information.
+          or broad submission of personal profile information.
         </p>
         <p>
           The app currently stores reading-related data locally on your device,
@@ -32,6 +32,36 @@ export default function PrivacyPage() {
           <li>Reading progress and last-read positions</li>
           <li>Display preferences like theme and font sizes</li>
         </ul>
+        <p>
+          If you choose to join the website waitlist, Better Muslim also
+          collects the email address you submit and your selected platform
+          preference.
+        </p>
+      </section>
+
+      <section>
+        <h2>How waitlist data is used</h2>
+        <p>
+          Waitlist information is used to notify you when Better Muslim becomes
+          available on the App Store, Google Play, or both, depending on the
+          option you selected.
+        </p>
+        <p>
+          Better Muslim does not use waitlist submissions for unrelated
+          marketing campaigns based on the current site behavior.
+        </p>
+      </section>
+
+      <section>
+        <h2>Third-party storage for waitlist submissions</h2>
+        <p>
+          Waitlist submissions are stored using Airtable, a third-party hosted
+          data platform, so they can be reviewed and managed before launch.
+        </p>
+        <p>
+          That means the email address and platform choice you submit through
+          the waitlist form are processed through Airtable infrastructure.
+        </p>
       </section>
 
       <section>
@@ -84,6 +114,10 @@ export default function PrivacyPage() {
           Data stored locally remains on your device unless you remove it by
           clearing app data, reinstalling the app, or changing your saved items
           and settings inside the app.
+        </p>
+        <p>
+          Waitlist submissions may be retained until launch notifications are
+          sent or until you request deletion by contacting support.
         </p>
       </section>
 

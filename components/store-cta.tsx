@@ -3,6 +3,11 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "@/components/ui/button";
+import {
+  getFieldError,
+  type WaitlistPlatform,
+  waitlistFormSchema,
+} from "@/lib/waitlist";
 
 function GooglePlayIcon() {
   return (
@@ -43,17 +48,33 @@ const storeButtons = [
     label: "Google Play",
     variant: "storePrimary" as const,
     icon: GooglePlayIcon,
+    platform: "android" as const,
   },
   {
     label: "App Store",
     variant: "store" as const,
     icon: AppStoreIcon,
+    platform: "ios" as const,
   },
+];
+
+const platformOptions: Array<{ label: string; value: WaitlistPlatform }> = [
+  { label: "Android", value: "android" },
+  { label: "iPhone", value: "ios" },
+  { label: "Both", value: "both" },
 ];
 
 export function StoreCta() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [email, setEmail] = useState("");
+  const [platform, setPlatform] = useState<WaitlistPlatform>("android");
+  const [fieldErrors, setFieldErrors] = useState<
+    Record<string, string[] | undefined>
+  >({});
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
@@ -81,6 +102,82 @@ export function StoreCta() {
     };
   }, [isOpen]);
 
+  const resetForm = () => {
+    setEmail("");
+    setPlatform("android");
+    setFieldErrors({});
+    setSubmitError(null);
+    setSuccessMessage(null);
+    setIsSubmitting(false);
+  };
+
+  const openWaitlist = (nextPlatform: WaitlistPlatform) => {
+    resetForm();
+    setPlatform(nextPlatform);
+    setIsOpen(true);
+  };
+
+  const closeWaitlist = () => {
+    setIsOpen(false);
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    setFieldErrors({});
+    setSubmitError(null);
+
+    const parsed = waitlistFormSchema.safeParse({ email, platform });
+
+    if (!parsed.success) {
+      setFieldErrors(parsed.error.flatten().fieldErrors);
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...parsed.data,
+          source: "store_modal",
+        }),
+      });
+
+      const data = (await response.json().catch(() => null)) as {
+        error?: string;
+        fieldErrors?: Record<string, string[] | undefined>;
+        message?: string;
+      } | null;
+
+      if (!response.ok) {
+        if (data?.fieldErrors) {
+          setFieldErrors(data.fieldErrors);
+        }
+
+        setSubmitError(data?.error ?? "Unable to join the waitlist right now.");
+        return;
+      }
+
+      setSuccessMessage(
+        data?.message ?? "You have been added to the Better Muslim waitlist.",
+      );
+      setEmail("");
+      setFieldErrors({});
+    } catch {
+      setSubmitError("Unable to join the waitlist right now.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const emailError = getFieldError(fieldErrors, "email");
+  const platformError = getFieldError(fieldErrors, "platform");
+
   return (
     <>
       <div className="flex flex-wrap gap-4 max-md:flex-col">
@@ -89,7 +186,7 @@ export function StoreCta() {
             key={button.label}
             type="button"
             variant={button.variant}
-            onClick={() => setIsOpen(true)}
+            onClick={() => openWaitlist(button.platform)}
           >
             <span
               className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[rgba(255,255,255,0.16)] text-current"
@@ -109,44 +206,129 @@ export function StoreCta() {
             <div className="fixed inset-0 z-[100] grid place-items-center p-4">
               <button
                 type="button"
-                aria-label="Close coming soon modal"
+                aria-label="Close waitlist modal"
                 className="absolute inset-0 bg-[rgba(13,24,20,0.45)] backdrop-blur-sm"
-                onClick={() => setIsOpen(false)}
+                onClick={closeWaitlist}
               />
               <div
                 role="dialog"
                 aria-modal="true"
-                aria-labelledby="store-coming-soon-title"
-                aria-describedby="store-coming-soon-description"
-                className="relative w-full max-w-md rounded-[2rem] border border-[rgba(18,54,37,0.12)] bg-[linear-gradient(180deg,rgba(255,252,245,0.98),rgba(248,243,233,0.98))] p-6 text-center shadow-[0_28px_90px_rgba(15,41,31,0.24)]"
+                aria-labelledby="waitlist-title"
+                aria-describedby="waitlist-description"
+                className="relative w-full max-w-md rounded-[2rem] border border-[rgba(18,54,37,0.12)] bg-[linear-gradient(180deg,rgba(255,252,245,0.98),rgba(248,243,233,0.98))] p-6 shadow-[0_28px_90px_rgba(15,41,31,0.24)]"
               >
+                <button
+                  type="button"
+                  onClick={closeWaitlist}
+                  className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(18,54,37,0.12)] bg-[rgba(255,255,255,0.82)] text-[#55665b]"
+                >
+                  <span aria-hidden="true" className="text-xl leading-none">
+                    ×
+                  </span>
+                </button>
+
                 <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgba(13,122,92,0.12),rgba(184,148,62,0.18))] text-[#08523e]">
                   <span className="text-xl font-bold">BM</span>
                 </div>
-                <p className="mt-5 text-[0.78rem] font-bold uppercase tracking-[0.16em] text-[#08523e]">
-                  Store Release
+                <p className="mt-5 text-center text-[0.78rem] font-bold uppercase tracking-[0.16em] text-[#08523e]">
+                  Waitlist
                 </p>
                 <h2
-                  id="store-coming-soon-title"
-                  className='mt-2 font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[2rem] leading-none font-bold text-[#163328]'
+                  id="waitlist-title"
+                  className='mt-2 text-center font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[2rem] leading-none font-bold text-[#163328]'
                 >
-                  Coming soon
+                  Get notified when it launches
                 </h2>
                 <p
-                  id="store-coming-soon-description"
-                  className="mt-3 text-[1rem] leading-[1.75] text-[#617064]"
+                  id="waitlist-description"
+                  className="mt-3 text-center text-[1rem] leading-[1.75] text-[#617064]"
                 >
-                  Better Muslim is not in the stores yet. We&apos;ll publish the
-                  download links here as soon as the release is ready.
+                  Join the Better Muslim waitlist and we&apos;ll email you when
+                  the app is live on your platform.
                 </p>
-                <Button
-                  type="button"
-                  variant="default"
-                  className="mt-6 w-full justify-center"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Close
-                </Button>
+
+                {successMessage ? (
+                  <div className="mt-6 rounded-[1.5rem] border border-[rgba(13,122,92,0.16)] bg-[rgba(233,245,239,0.9)] p-5 text-center">
+                    <p className="text-[0.8rem] font-bold uppercase tracking-[0.12em] text-[#08523e]">
+                      You&apos;re in
+                    </p>
+                    <p className="mt-2 text-[1rem] leading-[1.75] text-[#355347]">
+                      {successMessage}
+                    </p>
+                    <Button
+                      type="button"
+                      variant="default"
+                      className="mt-5 w-full justify-center"
+                      onClick={closeWaitlist}
+                    >
+                      Close
+                    </Button>
+                  </div>
+                ) : (
+                  <form className="mt-6 grid gap-4" onSubmit={handleSubmit}>
+                    <label className="grid gap-2">
+                      <span className="text-[0.84rem] font-semibold text-[#163328]">
+                        Email
+                      </span>
+                      <input
+                        type="email"
+                        inputMode="email"
+                        autoComplete="email"
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
+                        className="min-h-12 rounded-2xl border border-[rgba(18,54,37,0.14)] bg-[rgba(255,255,255,0.8)] px-4 text-[#163328] outline-none transition-colors placeholder:text-[#8a958d] focus:border-[#0d7a5c]"
+                        placeholder="you@example.com"
+                      />
+                      {emailError ? (
+                        <p className="text-sm text-[#a64832]">{emailError}</p>
+                      ) : null}
+                    </label>
+
+                    <label className="grid gap-2">
+                      <span className="text-[0.84rem] font-semibold text-[#163328]">
+                        Notify me for
+                      </span>
+                      <select
+                        value={platform}
+                        onChange={(event) =>
+                          setPlatform(event.target.value as WaitlistPlatform)
+                        }
+                        className="min-h-12 rounded-2xl border border-[rgba(18,54,37,0.14)] bg-[rgba(255,255,255,0.8)] px-4 text-[#163328] outline-none transition-colors focus:border-[#0d7a5c]"
+                      >
+                        {platformOptions.map((option) => (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
+                      </select>
+                      {platformError ? (
+                        <p className="text-sm text-[#a64832]">
+                          {platformError}
+                        </p>
+                      ) : null}
+                    </label>
+
+                    <p className="text-sm leading-[1.7] text-[#617064]">
+                      We&apos;ll only use your email to notify you about the app
+                      launch and closely related release updates.
+                    </p>
+
+                    {submitError ? (
+                      <div className="rounded-2xl border border-[rgba(166,72,50,0.16)] bg-[rgba(252,242,239,0.92)] px-4 py-3 text-sm text-[#a64832]">
+                        {submitError}
+                      </div>
+                    ) : null}
+
+                    <Button
+                      type="submit"
+                      variant="default"
+                      className="mt-1 w-full justify-center"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? "Joining..." : "Join waitlist"}
+                    </Button>
+                  </form>
+                )}
               </div>
             </div>,
             document.body,

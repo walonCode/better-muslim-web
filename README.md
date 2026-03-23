@@ -62,8 +62,15 @@ components/
   legal-page.tsx    Shared legal page wrapper
   site-header.tsx   Header and mobile nav
   site-footer.tsx   Footer links and brand copy
+  store-cta.tsx     Store buttons and waitlist modal
   motion/           Framer Motion helpers
   ui/               Reusable UI primitives
+
+lib/
+  waitlist.ts       Shared zod waitlist schema
+
+app/api/
+  waitlist/route.ts Airtable-backed waitlist endpoint
 
 public/
   better-muslim-logo.png
@@ -91,6 +98,28 @@ Available scripts:
 - `npm run format` format the codebase with Biome
 
 `bun.lock` is present in the repo, so Bun is also an option if that is your preferred package manager.
+
+## Waitlist Setup
+
+The landing page store buttons open a waitlist modal and submit to `/api/waitlist`.
+
+Set these environment variables before using the waitlist:
+
+```bash
+AIRTABLE_TOKEN=your_airtable_personal_access_token
+AIRTABLE_BASE_ID=appXXXXXXXXXXXXXX
+AIRTABLE_TABLE_NAME=Waitlist
+```
+
+Recommended Airtable fields:
+
+- `Email`
+- `Platform`
+- `Source`
+- `Created At`
+- `Status`
+
+The API currently deduplicates by `Email + Platform` before creating a new row.
 
 ## Content And Product Assumptions
 
