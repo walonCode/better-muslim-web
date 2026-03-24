@@ -8,9 +8,15 @@ type RevealProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
+  distance?: number;
 };
 
-export function Reveal({ children, className, delay = 0 }: RevealProps) {
+export function Reveal({
+  children,
+  className,
+  delay = 0,
+  distance = 32,
+}: RevealProps) {
   const shouldReduceMotion = useReducedMotion();
 
   if (shouldReduceMotion) {
@@ -20,11 +26,11 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
   return (
     <motion.div
       className={cn(className)}
-      initial={{ opacity: 0, y: 28, scale: 0.97, filter: "blur(10px)" }}
+      initial={{ opacity: 0, y: distance, scale: 0.965, filter: "blur(14px)" }}
       whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{
-        duration: 0.7,
+        duration: 0.82,
         delay,
         ease: [0.16, 1, 0.3, 1],
       }}

@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+"use client"
+
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Float } from "@/components/motion/float";
@@ -8,9 +10,7 @@ import { StoreCta } from "@/components/store-cta";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
-export const metadata: Metadata = {
-  title: "Better Muslim",
-};
+
 
 const featureCards = [
   {
@@ -46,18 +46,35 @@ const androidPreviewUrl =
   "https://expo.dev/accounts/walon/projects/better-muslim/builds/cdf6ecce-78cd-458b-a8d3-9e4c01302680";
 
 export default function Home() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div className="pb-20">
       <Section className="pt-8 md:pt-10">
         <Reveal className="mb-7 flex justify-center md:mb-10">
           <div className="flex flex-wrap items-center justify-center gap-2">
-            {trustItems.map((item) => (
-              <span
+            {trustItems.map((item, index) => (
+              <motion.span
                 key={item}
+                initial={
+                  shouldReduceMotion
+                    ? false
+                    : { opacity: 0, y: 14, scale: 0.94, filter: "blur(8px)" }
+                }
+                animate={
+                  shouldReduceMotion
+                    ? undefined
+                    : { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }
+                }
+                transition={{
+                  duration: 0.55,
+                  delay: 0.12 + index * 0.08,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
                 className="rounded-full border border-[var(--border)] bg-[var(--surface-muted)] px-3 py-1 text-[0.74rem] font-semibold text-[var(--text-soft)]"
               >
                 {item}
-              </span>
+              </motion.span>
             ))}
           </div>
         </Reveal>
@@ -77,19 +94,50 @@ export default function Home() {
                 mobile experience with offline-first behavior where practical.
               </p>
             </div>
-            <div className="grid gap-4 md:grid-cols-[auto_auto] md:items-center md:justify-start">
-              <Button
-                href={androidPreviewUrl}
-                variant="storePrimary"
-                target="_blank"
-                rel="noreferrer"
+            <motion.div
+              initial={
+                shouldReduceMotion
+                  ? false
+                  : { opacity: 0, y: 18, filter: "blur(10px)" }
+              }
+              animate={
+                shouldReduceMotion
+                  ? undefined
+                  : { opacity: 1, y: 0, filter: "blur(0px)" }
+              }
+              transition={{
+                duration: 0.75,
+                delay: 0.22,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="grid gap-4 md:grid-cols-[auto_auto] md:items-center md:justify-start"
+            >
+              <motion.div
+                whileHover={
+                  shouldReduceMotion ? undefined : { y: -3, scale: 1.01 }
+                }
+                transition={{ duration: 0.2 }}
               >
-                <span>
-                  <strong>Try Android Preview</strong>
-                </span>
-              </Button>
-              <StoreCta platforms={["ios"]} />
-            </div>
+                <Button
+                  href={androidPreviewUrl}
+                  variant="storePrimary"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span>
+                    <strong>Try Android Preview</strong>
+                  </span>
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={
+                  shouldReduceMotion ? undefined : { y: -3, scale: 1.01 }
+                }
+                transition={{ duration: 0.2 }}
+              >
+                <StoreCta platforms={["ios"]} />
+              </motion.div>
+            </motion.div>
             <div className="grid gap-4 md:grid-cols-[auto_auto] md:items-center md:justify-start">
               <Link
                 className="inline-flex min-h-13 w-full items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface-soft)] px-5 py-3 text-sm font-medium text-[var(--text-primary)] transition-transform duration-200 hover:-translate-y-0.5 md:w-auto"
@@ -99,13 +147,28 @@ export default function Home() {
               </Link>
             </div>
             <div className="grid gap-4">
-              {highlights.map((item) => (
-                <p
+              {highlights.map((item, index) => (
+                <motion.p
                   key={item}
+                  initial={
+                    shouldReduceMotion
+                      ? false
+                      : { opacity: 0, x: -16, filter: "blur(8px)" }
+                  }
+                  animate={
+                    shouldReduceMotion
+                      ? undefined
+                      : { opacity: 1, x: 0, filter: "blur(0px)" }
+                  }
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.34 + index * 0.1,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
                   className="border-l-2 border-[var(--accent-soft)] pl-4 text-[var(--text-secondary)]"
                 >
                   {item}
-                </p>
+                </motion.p>
               ))}
             </div>
           </Reveal>
@@ -238,15 +301,48 @@ export default function Home() {
                   x={5}
                   y={14}
                 >
-                  <Image
-                    src="/phone_image_transparent.png"
-                    alt="Better Muslim app hero image shown on an Android phone"
-                    width={1000}
-                    height={1200}
-                    sizes="(max-width: 768px) 80vw, (max-width: 1280px) 40vw, 35rem"
-                    priority
-                    className="relative z-10 h-auto w-[min(100%,35rem)] drop-shadow-[0_34px_60px_rgba(var(--shadow-strong),0.2)] max-md:w-[min(100%,22rem)]"
-                  />
+                  <motion.div
+                    initial={
+                      shouldReduceMotion
+                        ? false
+                        : {
+                            opacity: 0,
+                            y: 26,
+                            scale: 0.94,
+                            rotate: -2,
+                            filter: "blur(12px)",
+                          }
+                    }
+                    animate={
+                      shouldReduceMotion
+                        ? undefined
+                        : {
+                            opacity: 1,
+                            y: 0,
+                            scale: 1,
+                            rotate: 0,
+                            filter: "blur(0px)",
+                          }
+                    }
+                    transition={{
+                      duration: 1,
+                      delay: 0.26,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                    whileHover={
+                      shouldReduceMotion ? undefined : { y: -5, rotate: -1.2 }
+                    }
+                  >
+                    <Image
+                      src="/phone_image_transparent.png"
+                      alt="Better Muslim app hero image shown on an Android phone"
+                      width={1000}
+                      height={1200}
+                      sizes="(max-width: 768px) 80vw, (max-width: 1280px) 40vw, 35rem"
+                      priority
+                      className="relative z-10 h-auto w-[min(100%,35rem)] drop-shadow-[0_34px_60px_rgba(var(--shadow-strong),0.2)] max-md:w-[min(100%,22rem)]"
+                    />
+                  </motion.div>
                 </Float>
               </div>
             </div>
@@ -271,14 +367,27 @@ export default function Home() {
         <div className="grid gap-6 md:grid-cols-3">
           {featureCards.map((feature, index) => (
             <Reveal key={feature.title} delay={index * 0.08}>
-              <Card className="min-h-[15rem] p-6 transition-transform duration-300 hover:-translate-y-1.5 max-md:rounded-[1.35rem] max-md:p-5">
-                <h3 className="mb-3 text-[1.15rem] font-bold">
-                  {feature.title}
-                </h3>
-                <p className="text-[1.02rem] leading-[1.8] text-[var(--text-secondary)]">
-                  {feature.description}
-                </p>
-              </Card>
+              <motion.div
+                whileHover={
+                  shouldReduceMotion
+                    ? undefined
+                    : {
+                        y: -8,
+                        rotate: index % 2 === 0 ? -0.6 : 0.6,
+                        scale: 1.01,
+                      }
+                }
+                transition={{ duration: 0.22 }}
+              >
+                <Card className="min-h-[15rem] p-6 transition-transform duration-300 max-md:rounded-[1.35rem] max-md:p-5">
+                  <h3 className="mb-3 text-[1.15rem] font-bold">
+                    {feature.title}
+                  </h3>
+                  <p className="text-[1.02rem] leading-[1.8] text-[var(--text-secondary)]">
+                    {feature.description}
+                  </p>
+                </Card>
+              </motion.div>
             </Reveal>
           ))}
         </div>

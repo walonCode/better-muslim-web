@@ -1,5 +1,6 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -14,9 +15,15 @@ const navLinks = [
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   return (
-    <header className="sticky top-0 z-20 border-b border-[var(--border)] bg-[var(--header-bg)] backdrop-blur-[18px]">
+    <motion.header
+      initial={shouldReduceMotion ? false : { opacity: 0, y: -18 }}
+      animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+      transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+      className="sticky top-0 z-20 border-b border-[var(--border)] bg-[var(--header-bg)] backdrop-blur-[18px]"
+    >
       <div className="mx-auto w-[min(1180px,calc(100%-1.5rem))] py-2.5 md:flex md:items-center md:justify-between md:gap-8 md:w-[min(1180px,calc(100%-4rem))] md:py-3">
         <div className="flex items-center justify-between gap-3 md:gap-4">
           <Link
@@ -92,6 +99,6 @@ export function SiteHeader() {
           </div>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }

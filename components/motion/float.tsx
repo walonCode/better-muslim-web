@@ -32,15 +32,15 @@ export function Float({
     <motion.div
       className={className}
       animate={{
-        x: x ? [0, x, 0] : 0,
-        y: [0, -y, 0],
-        rotate: rotate ? [0, rotate, 0] : 0,
+        x: x ? [0, x, x * -0.35, 0] : 0,
+        y: [0, -y, y * 0.45, 0],
+        rotate: rotate ? [0, rotate, rotate * -0.35, 0] : 0,
       }}
       transition={{
         duration,
         delay,
         repeat: Number.POSITIVE_INFINITY,
-        ease: "easeInOut",
+        ease: [0.42, 0, 0.2, 1],
       }}
     >
       {children}

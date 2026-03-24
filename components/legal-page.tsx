@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Float } from "@/components/motion/float";
 import { Reveal } from "@/components/motion/reveal";
 import { Section } from "@/components/section";
 
@@ -11,7 +12,26 @@ type LegalPageProps = {
 export function LegalPage({ title, intro, children }: LegalPageProps) {
   return (
     <Section className="py-14 md:py-20">
-      <div className="max-w-[52rem]">
+      <div className="relative max-w-[52rem]">
+        <Float
+          className="absolute -right-8 top-2 hidden h-28 w-28 rounded-[2rem] border border-[var(--accent-soft)] bg-[linear-gradient(135deg,var(--brand-soft),var(--accent-soft))] opacity-80 md:block"
+          delay={0.2}
+          duration={10}
+          rotate={4}
+          x={10}
+          y={12}
+        >
+          <div className="h-full w-full rounded-[2rem] backdrop-blur-[2px]" />
+        </Float>
+        <Float
+          className="absolute right-10 top-16 hidden h-12 w-12 rounded-full border border-[var(--border)] bg-[var(--surface-strong)] md:block"
+          delay={0.7}
+          duration={8}
+          x={6}
+          y={9}
+        >
+          <div className="h-full w-full rounded-full" />
+        </Float>
         <Reveal className="mb-8 text-left">
           <div className="mb-5 h-px w-20 bg-[linear-gradient(90deg,var(--brand),transparent)]" />
           <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">

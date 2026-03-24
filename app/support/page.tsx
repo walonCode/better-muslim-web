@@ -1,5 +1,6 @@
 import { Bug, Mail, ScrollText } from "lucide-react";
 import type { Metadata } from "next";
+import { Float } from "@/components/motion/float";
 import { Reveal } from "@/components/motion/reveal";
 import { Section } from "@/components/section";
 import { Card } from "@/components/ui/card";
@@ -33,7 +34,17 @@ const checklist = [
 export default function SupportPage() {
   return (
     <Section className="py-14 md:py-20">
-      <div className="grid gap-7">
+      <div className="relative grid gap-7">
+        <Float
+          className="absolute right-0 top-0 hidden h-24 w-24 rounded-[2rem] border border-[var(--accent-soft)] bg-[linear-gradient(135deg,var(--brand-soft),var(--accent-soft))] opacity-80 md:block"
+          delay={0.15}
+          duration={9}
+          rotate={5}
+          x={8}
+          y={12}
+        >
+          <div className="h-full w-full rounded-[2rem]" />
+        </Float>
         <Reveal className="mx-auto max-w-[44rem] text-center">
           <div className="mx-auto mb-5 h-px w-24 bg-[linear-gradient(90deg,transparent,var(--brand),transparent)]" />
           <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
@@ -84,9 +95,9 @@ export default function SupportPage() {
                   return (
                     <div
                       key={topic.title}
-                      className="grid grid-cols-[auto_1fr] items-start gap-4 border-t border-[var(--border)] pt-[1.1rem] first:border-t-0 first:pt-0"
+                      className="group grid grid-cols-[auto_1fr] items-start gap-4 border-t border-[var(--border)] pt-[1.1rem] first:border-t-0 first:pt-0"
                     >
-                      <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,var(--brand-soft),var(--accent-soft))] text-[var(--brand-strong)]">
+                      <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,var(--brand-soft),var(--accent-soft))] text-[var(--brand-strong)] shadow-[0_14px_30px_rgba(var(--shadow-brand),0.12)] transition-transform duration-300 group-hover:-translate-y-0.5">
                         <Icon size={20} strokeWidth={2.1} />
                       </div>
                       <div>
