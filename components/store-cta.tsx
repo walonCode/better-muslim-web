@@ -64,7 +64,7 @@ const platformOptions: Array<{ label: string; value: WaitlistPlatform }> = [
   { label: "Both", value: "both" },
 ];
 
-export function StoreCta() {
+export function StoreCta({ platforms }: { platforms?: WaitlistPlatform[] }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [email, setEmail] = useState("");
@@ -177,11 +177,14 @@ export function StoreCta() {
 
   const emailError = getFieldError(fieldErrors, "email");
   const platformError = getFieldError(fieldErrors, "platform");
+  const visibleButtons = platforms?.length
+    ? storeButtons.filter((button) => platforms.includes(button.platform))
+    : storeButtons;
 
   return (
     <>
       <div className="flex flex-wrap gap-4 max-md:flex-col">
-        {storeButtons.map((button) => (
+        {visibleButtons.map((button) => (
           <Button
             key={button.label}
             type="button"

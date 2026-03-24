@@ -5,6 +5,7 @@ import { Float } from "@/components/motion/float";
 import { Reveal } from "@/components/motion/reveal";
 import { Section } from "@/components/section";
 import { StoreCta } from "@/components/store-cta";
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 export const metadata: Metadata = {
@@ -12,6 +13,11 @@ export const metadata: Metadata = {
 };
 
 const featureCards = [
+  {
+    title: "Daily companion, not just a reader",
+    description:
+      "Start from a home dashboard built around prayer times, next actions, streaks, and the parts of the app you actually revisit.",
+  },
   {
     title: "Quran that fits real reading habits",
     description:
@@ -30,12 +36,14 @@ const featureCards = [
 ];
 
 const highlights = [
+  "Prayer times, progress, streaks, and resume flows in one place",
   "Offline-first Quran, Hadith, and Learn access where possible",
-  "Local bookmarks, favorites, reading progress, and display settings",
-  "Light, dark, and system themes with reading controls built in",
+  "Local bookmarks, favorites, backup, and reader settings on device",
 ];
 
 const trustItems = ["No account required", "Offline-first", "Ad-free"];
+const androidPreviewUrl =
+  "https://expo.dev/accounts/walon/projects/better-muslim/builds/cdf6ecce-78cd-458b-a8d3-9e4c01302680";
 
 export default function Home() {
   return (
@@ -61,16 +69,28 @@ export default function Home() {
             </div>
             <div className="space-y-5">
               <h1 className='max-w-[11ch] font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(3.2rem,8vw,6rem)] leading-[0.95] font-bold max-md:max-w-none'>
-                Quran, Hadith, and learning in one calm daily app.
+                A calm Muslim companion for prayer, reading, and daily growth.
               </h1>
               <p className="text-[1.02rem] leading-[1.8] text-[#617064]">
-                Better Muslim keeps your core Islamic reading and study flow in
-                one place with offline-first access and thoughtful reading
-                controls.
+                Better Muslim brings prayer times, Quran reading, Hadith study,
+                structured learning, and progress tracking into one focused
+                mobile experience with offline-first behavior where practical.
               </p>
             </div>
             <div className="grid gap-4 md:grid-cols-[auto_auto] md:items-center md:justify-start">
-              <StoreCta />
+              <Button
+                href={androidPreviewUrl}
+                variant="storePrimary"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>
+                  <strong>Try Android Preview</strong>
+                </span>
+              </Button>
+              <StoreCta platforms={["ios"]} />
+            </div>
+            <div className="grid gap-4 md:grid-cols-[auto_auto] md:items-center md:justify-start">
               <Link
                 className="inline-flex min-h-13 w-full items-center justify-center rounded-full border border-[rgba(18,54,37,0.12)] bg-[rgba(255,250,241,0.72)] px-5 py-3 text-sm font-medium text-[#163328] transition-transform duration-200 hover:-translate-y-0.5 md:w-auto"
                 href="#features"
@@ -178,10 +198,10 @@ export default function Home() {
                 >
                   <div className="rounded-[1.25rem] border border-[rgba(18,54,37,0.08)] bg-white px-5 py-3 shadow-[0_16px_32px_rgba(15,41,31,0.08)]">
                     <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[#9aa39c]">
-                      Learning hub
+                      Daily flow
                     </p>
                     <p className="mt-1 text-[1.05rem] font-semibold text-[#163328]">
-                      Quran, Hadith, Learn
+                      Prayer, Quran, Learn
                     </p>
                   </div>
                 </Float>
@@ -192,7 +212,7 @@ export default function Home() {
                 >
                   <div className="rounded-[1.25rem] border border-[rgba(18,54,37,0.08)] bg-white px-5 py-3 shadow-[0_16px_32px_rgba(15,41,31,0.08)]">
                     <p className="text-[0.95rem] font-medium text-[#163328]">
-                      Offline-first reading
+                      Streaks and goals
                     </p>
                   </div>
                 </Float>
@@ -240,12 +260,12 @@ export default function Home() {
             Why it stands out
           </div>
           <h2 className='mt-2 font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(2.1rem,5vw,3.6rem)] leading-none font-bold'>
-            Built around consistent daily use, not a cluttered feature dump.
+            Built around daily Muslim habits, not a cluttered feature dump.
           </h2>
           <p className="mt-3 text-[1.02rem] leading-[1.8] text-[#617064]">
             The app already supports the core habits people come back for:
-            reading, saving progress, revisiting material, and learning in a
-            calmer interface.
+            prayer awareness, reading, saving progress, revisiting material, and
+            learning in a calmer interface.
           </p>
         </Reveal>
         <div className="grid gap-6 md:grid-cols-3">
@@ -277,7 +297,8 @@ export default function Home() {
               <p className="text-[1.02rem] leading-[1.8] text-[#617064]">
                 Better Muslim keeps the experience adaptable with theme
                 controls, Arabic and English font sizing, and translation or
-                transliteration visibility settings.
+                transliteration visibility settings, while keeping the interface
+                focused on daily use.
               </p>
             </Card>
           </Reveal>
@@ -287,16 +308,88 @@ export default function Home() {
                 Real product depth
               </div>
               <ul className="mt-4 grid gap-4 text-[#617064]">
+                <li>
+                  Prayer setup, local schedules, and next-prayer awareness
+                </li>
                 <li>Ayah bookmarks and sharing</li>
                 <li>Hadith bookmarks, search, and continue reading</li>
                 <li>
                   Learn modules for Salah, Duas, etiquette, Arabic, and basics
                 </li>
-                <li>Local storage for progress, favorites, and settings</li>
+                <li>
+                  Global search, Quran goals, streaks, backup, and storage tools
+                </li>
               </ul>
             </Card>
           </Reveal>
         </div>
+      </Section>
+
+      <Section className="pt-6">
+        <Reveal>
+          <Card className="grid gap-8 overflow-hidden bg-[linear-gradient(135deg,rgba(13,122,92,0.09),rgba(184,148,62,0.12)),rgba(255,252,245,0.94)] p-6 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] md:p-8">
+            <div>
+              <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[#08523e]">
+                Android preview
+              </div>
+              <h2 className='mt-2 font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(2rem,4.4vw,3.2rem)] leading-none font-bold'>
+                Try the Android preview before release.
+              </h2>
+              <p className="mt-4 text-[1.02rem] leading-[1.8] text-[#617064]">
+                Android users can try Better Muslim early by downloading the
+                current preview build directly from Expo. No sign in or sign up
+                is required.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-4 max-md:flex-col">
+                <a
+                  href={androidPreviewUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex min-h-13 items-center justify-center rounded-full bg-[#0d7a5c] px-5 py-3 text-sm font-medium text-[#f7f5ef] shadow-[0_16px_36px_rgba(13,122,92,0.22)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#08523e]"
+                >
+                  Try Android Preview
+                </a>
+                <Link
+                  className="inline-flex min-h-13 items-center justify-center rounded-full border border-[rgba(18,54,37,0.12)] bg-[rgba(255,250,241,0.72)] px-5 py-3 text-sm font-medium text-[#163328] transition-transform duration-200 hover:-translate-y-0.5"
+                  href="#android-install-guide"
+                >
+                  View Install Guide
+                </Link>
+              </div>
+            </div>
+
+            <div
+              id="android-install-guide"
+              className="rounded-[1.5rem] border border-[rgba(18,54,37,0.12)] bg-[rgba(255,255,255,0.72)] p-5 shadow-[0_14px_40px_rgba(15,41,31,0.08)]"
+            >
+              <div className="text-[0.8rem] font-bold uppercase tracking-[0.14em] text-[#08523e]">
+                Install guide
+              </div>
+              <ol className="mt-4 grid gap-4 text-[0.98rem] leading-[1.75] text-[#617064]">
+                <li>Open the preview build link on your Android phone.</li>
+                <li>
+                  Tap download on the Expo build page. No account is required.
+                </li>
+                <li>
+                  Download the APK from the build page and wait for the file to
+                  finish downloading.
+                </li>
+                <li>
+                  If Android blocks the install, allow installs from your
+                  browser or file manager for this one step.
+                </li>
+                <li>
+                  Open the downloaded APK, install Better Muslim, and launch the
+                  app normally.
+                </li>
+              </ol>
+              <p className="mt-4 text-sm leading-[1.7] text-[#617064]">
+                If you already installed an older preview, uninstall it first if
+                Android reports a signing conflict.
+              </p>
+            </div>
+          </Card>
+        </Reveal>
       </Section>
     </div>
   );

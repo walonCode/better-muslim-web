@@ -15,8 +15,8 @@ export function SiteFooter() {
             Better Muslim
           </p>
           <p className="mx-auto mt-1 max-w-[32rem] leading-[1.55] text-[#617064] md:mx-0">
-            Quran, Hadith, and structured Islamic learning in one calm mobile
-            experience.
+            A calm Muslim companion for prayer, Quran, Hadith, and structured
+            daily learning.
           </p>
         </div>
         <nav

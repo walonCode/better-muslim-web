@@ -31,7 +31,7 @@ export function SiteHeader() {
                 Better Muslim
               </span>
               <small className="mt-0.5 block text-[0.8rem] text-[#617064] md:mt-1 md:text-[0.85rem]">
-                Quran, Hadith & Learn
+                Prayer, Quran, Hadith & Learn
               </small>
             </div>
           </Link>
