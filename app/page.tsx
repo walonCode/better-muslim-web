@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
@@ -9,8 +9,6 @@ import { Section } from "@/components/section";
 import { StoreCta } from "@/components/store-cta";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-
-
 
 const featureCards = [
   {
@@ -379,7 +377,7 @@ export default function Home() {
                 }
                 transition={{ duration: 0.22 }}
               >
-                <Card className="min-h-[15rem] p-6 transition-transform duration-300 max-md:rounded-[1.35rem] max-md:p-5">
+                <Card className="min-h-[15rem] border-[var(--border)] bg-[linear-gradient(180deg,var(--surface),var(--surface-strong))] p-6 shadow-[0_20px_70px_rgba(var(--shadow-strong),0.12)] hover:border-[var(--brand-soft)] hover:shadow-[0_30px_90px_rgba(var(--shadow-brand),0.16)] max-md:rounded-[1.35rem] max-md:p-5">
                   <h3 className="mb-3 text-[1.15rem] font-bold">
                     {feature.title}
                   </h3>
@@ -396,7 +394,7 @@ export default function Home() {
       <Section className="pt-6">
         <div className="grid gap-8 md:grid-cols-2 max-md:gap-5">
           <Reveal>
-            <Card className="p-6 transition-transform duration-300 hover:-translate-y-1.5 max-md:rounded-[1.35rem] max-md:p-5">
+            <Card className="bg-[linear-gradient(180deg,var(--surface),var(--surface-strong))] p-6 hover:-translate-y-2 hover:border-[var(--brand-soft)] hover:shadow-[0_32px_96px_rgba(var(--shadow-brand),0.16)] max-md:rounded-[1.35rem] max-md:p-5">
               <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
                 Reading experience
               </div>
@@ -412,7 +410,7 @@ export default function Home() {
             </Card>
           </Reveal>
           <Reveal delay={0.08}>
-            <Card className="bg-[linear-gradient(135deg,var(--brand-soft),rgba(184,148,62,0.08)),var(--surface)] p-6 transition-transform duration-300 hover:-translate-y-1.5 dark:bg-[linear-gradient(135deg,rgba(46,92,78,0.34),rgba(115,96,48,0.18)),var(--surface)] max-md:rounded-[1.35rem] max-md:p-5">
+            <Card className="bg-[linear-gradient(135deg,var(--brand-soft),rgba(184,148,62,0.08)),var(--surface)] p-6 hover:-translate-y-2 hover:border-[var(--brand-soft)] hover:shadow-[0_32px_96px_rgba(var(--shadow-brand),0.16)] dark:bg-[linear-gradient(135deg,rgba(46,92,78,0.34),rgba(115,96,48,0.18)),var(--surface)] max-md:rounded-[1.35rem] max-md:p-5">
               <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
                 Real product depth
               </div>
@@ -436,7 +434,7 @@ export default function Home() {
 
       <Section className="pt-6">
         <Reveal>
-          <Card className="grid gap-8 overflow-hidden bg-[linear-gradient(135deg,var(--hero-preview-top),var(--hero-preview-bottom)),var(--surface)] p-6 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] md:p-8">
+          <Card className="grid gap-8 overflow-hidden bg-[linear-gradient(135deg,var(--hero-preview-top),var(--hero-preview-bottom)),var(--surface)] p-6 hover:-translate-y-2 hover:border-[var(--brand-soft)] hover:shadow-[0_32px_96px_rgba(var(--shadow-brand),0.16)] md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] md:p-8">
             <div>
               <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
                 Android preview

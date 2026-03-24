@@ -61,7 +61,7 @@ export default function SupportPage() {
         </Reveal>
 
         <Reveal delay={0.08}>
-          <Card className="grid items-center gap-6 bg-[linear-gradient(135deg,var(--surface),var(--surface-strong))] p-6 transition-transform duration-300 hover:-translate-y-1 md:grid-cols-[minmax(0,1fr)_auto]">
+          <Card className="grid items-center gap-6 bg-[linear-gradient(135deg,var(--surface),var(--surface-strong))] p-6 hover:-translate-y-2 hover:border-[var(--brand-soft)] hover:shadow-[0_32px_96px_rgba(var(--shadow-brand),0.18)] md:grid-cols-[minmax(0,1fr)_auto]">
             <div>
               <p className="text-[0.8rem] font-bold uppercase tracking-[0.12em] text-[var(--brand-strong)]">
                 Contact email
@@ -84,7 +84,7 @@ export default function SupportPage() {
 
         <div className="grid items-start gap-8 md:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)]">
           <Reveal delay={0.12}>
-            <Card className="bg-[linear-gradient(180deg,var(--surface),var(--surface-strong))] p-6 transition-transform duration-300 hover:-translate-y-1">
+            <Card className="bg-[linear-gradient(180deg,var(--surface),var(--surface-strong))] p-6 hover:-translate-y-2 hover:border-[var(--brand-soft)] hover:shadow-[0_30px_84px_rgba(var(--shadow-brand),0.16)]">
               <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
                 How We Can Help
               </div>
@@ -116,7 +116,7 @@ export default function SupportPage() {
           </Reveal>
 
           <Reveal delay={0.18}>
-            <Card className="bg-[linear-gradient(180deg,var(--surface),var(--surface-strong))] p-6 transition-transform duration-300 hover:-translate-y-1">
+            <Card className="bg-[linear-gradient(180deg,var(--surface),var(--surface-strong))] p-6 hover:-translate-y-2 hover:border-[var(--brand-soft)] hover:shadow-[0_30px_84px_rgba(var(--shadow-brand),0.16)]">
               <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
                 Before You Email
               </div>

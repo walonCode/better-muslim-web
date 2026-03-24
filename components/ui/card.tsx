@@ -5,7 +5,7 @@ export function Card({ className, ...props }: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       className={cn(
-        "relative rounded-[1.6rem] border border-[var(--border)] bg-[var(--surface)] shadow-[0_20px_70px_rgba(var(--shadow-strong),0.12)] backdrop-blur-[16px]",
+        "relative rounded-[1.6rem] border border-[var(--border)] bg-[var(--surface)] shadow-[0_20px_70px_rgba(var(--shadow-strong),0.12)] backdrop-blur-[16px] transition-[transform,box-shadow,border-color,background] duration-300",
         className,
       )}
       {...props}

@@ -45,7 +45,7 @@ export function LegalPage({ title, intro, children }: LegalPageProps) {
           </p>
         </Reveal>
         <Reveal
-          className="rounded-[2rem] border border-[var(--border)] bg-[linear-gradient(180deg,var(--surface),var(--surface-strong))] p-6 shadow-[0_20px_70px_rgba(var(--shadow-strong),0.12)] backdrop-blur-[16px] max-md:rounded-[1.35rem] max-md:p-5 [&_h2]:text-[1.15rem] [&_h2]:font-bold [&_li]:ml-4 [&_p]:text-[1.02rem] [&_p]:leading-[1.8] [&_p]:text-[var(--text-secondary)] [&_section+section]:mt-[1.7rem] [&_section+section]:border-t [&_section+section]:border-[var(--border)] [&_section+section]:pt-[1.7rem] [&_ul]:mt-3 [&_ul]:grid [&_ul]:gap-[0.45rem] [&_ul]:leading-[1.8] [&_ul]:text-[var(--text-secondary)] max-md:[&_section+section]:mt-[1.35rem] max-md:[&_section+section]:pt-[1.35rem]"
+          className="rounded-[2rem] border border-[var(--border)] bg-[linear-gradient(180deg,var(--surface),var(--surface-strong))] p-6 shadow-[0_20px_70px_rgba(var(--shadow-strong),0.12)] backdrop-blur-[16px] hover:-translate-y-2 hover:border-[var(--brand-soft)] hover:shadow-[0_32px_96px_rgba(var(--shadow-brand),0.14)] max-md:rounded-[1.35rem] max-md:p-5 [&_h2]:text-[1.15rem] [&_h2]:font-bold [&_li]:ml-4 [&_p]:text-[1.02rem] [&_p]:leading-[1.8] [&_p]:text-[var(--text-secondary)] [&_section+section]:mt-[1.7rem] [&_section+section]:border-t [&_section+section]:border-[var(--border)] [&_section+section]:pt-[1.7rem] [&_ul]:mt-3 [&_ul]:grid [&_ul]:gap-[0.45rem] [&_ul]:leading-[1.8] [&_ul]:text-[var(--text-secondary)] max-md:[&_section+section]:mt-[1.35rem] max-md:[&_section+section]:pt-[1.35rem]"
           delay={0.08}
         >
           {children}

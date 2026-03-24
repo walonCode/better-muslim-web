@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { RouteTransition } from "@/components/motion/route-transition";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -43,23 +42,6 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
-      <head>
-        <Script id="theme-init" strategy="beforeInteractive">
-          {`(() => {
-            const storageKey = "theme";
-            const stored = localStorage.getItem(storageKey) || "system";
-            const resolved =
-              stored === "system"
-                ? window.matchMedia("(prefers-color-scheme: dark)").matches
-                  ? "dark"
-                  : "light"
-                : stored;
-            const root = document.documentElement;
-            root.classList.toggle("dark", resolved === "dark");
-            root.style.colorScheme = resolved;
-          })();`}
-        </Script>
-      </head>
       <body className='min-h-full overflow-x-clip font-["Avenir_Next","Segoe_UI","Helvetica_Neue",Helvetica,Arial,sans-serif] text-[var(--text-primary)]'>
         <ThemeProvider>
           <div className="flex min-h-screen flex-col overflow-x-clip">
