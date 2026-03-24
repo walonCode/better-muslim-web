@@ -46,12 +46,14 @@ function AppStoreIcon() {
 const storeButtons = [
   {
     label: "Google Play",
+    waitlistLabel: "Join Android Waitlist",
     variant: "storePrimary" as const,
     icon: GooglePlayIcon,
     platform: "android" as const,
   },
   {
     label: "App Store",
+    waitlistLabel: "Join iPhone Waitlist",
     variant: "store" as const,
     icon: AppStoreIcon,
     platform: "ios" as const,
@@ -199,7 +201,9 @@ export function StoreCta({ platforms }: { platforms?: WaitlistPlatform[] }) {
               <button.icon />
             </span>
             <span>
-              <strong>{button.label}</strong>
+              <strong>
+                {platforms?.length === 1 ? button.waitlistLabel : button.label}
+              </strong>
             </span>
           </Button>
         ))}

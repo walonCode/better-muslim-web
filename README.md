@@ -6,7 +6,7 @@ Marketing and support website for the Better Muslim mobile app. This project is 
 
 The site is built around a single product story:
 
-- Better Muslim combines Quran reading, Hadith study, and structured Islamic learning.
+- Better Muslim is positioned as a calm Muslim companion for prayer, Quran, Hadith, and structured daily learning.
 - The product positioning emphasizes a calm, offline-first, ad-free mobile experience.
 - This repo is the website layer, not the mobile app itself.
 
@@ -39,10 +39,10 @@ The site uses a shared layout with:
 
 The homepage focuses on:
 
-- Hero section with product positioning and app mockup imagery
-- Feature cards for Quran, Hadith, and Learn
-- Reading experience messaging around bookmarks, progress, themes, and font controls
-- Trust cues such as offline-first, ad-free, and no-account-required usage
+- Hero section with product positioning, release status, and app mockup imagery
+- Product sections for prayer, Quran, Hadith, Learn, and progress tooling
+- Android preview guidance and iPhone waitlist capture
+- FAQ and utility messaging around offline-first use, no-account-required use, and current release state
 
 The support and legal pages are also part of the product surface, especially for app store compliance.
 
