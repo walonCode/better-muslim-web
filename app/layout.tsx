@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { RouteTransition } from "@/components/motion/route-transition";
-import "./globals.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { ThemeProvider } from "@/components/theme-provider";
+import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bettermuslim.app"),
@@ -39,15 +40,18 @@ export default function RootLayout({
       lang="en"
       className="h-full scroll-smooth antialiased"
       data-scroll-behavior="smooth"
+      suppressHydrationWarning
     >
-      <body className='min-h-full overflow-x-clip bg-[radial-gradient(circle_at_top_left,rgba(184,148,62,0.14),transparent_24%),radial-gradient(circle_at_top_right,rgba(13,122,92,0.16),transparent_22%),linear-gradient(180deg,#fbf7ef_0%,#f4ecdf_100%)] [background-color:#f7f1e6] font-["Avenir_Next","Segoe_UI","Helvetica_Neue",Helvetica,Arial,sans-serif] text-[#163328]'>
-        <div className="flex min-h-screen flex-col overflow-x-clip">
-          <SiteHeader />
-          <main className="flex-1">
-            <RouteTransition>{children}</RouteTransition>
-          </main>
-          <SiteFooter />
-        </div>
+      <body className='min-h-full overflow-x-clip font-["Avenir_Next","Segoe_UI","Helvetica_Neue",Helvetica,Arial,sans-serif] text-[var(--text-primary)]'>
+        <ThemeProvider>
+          <div className="flex min-h-screen flex-col overflow-x-clip">
+            <SiteHeader />
+            <main className="flex-1">
+              <RouteTransition>{children}</RouteTransition>
+            </main>
+            <SiteFooter />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

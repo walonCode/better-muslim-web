@@ -54,7 +54,7 @@ export default function Home() {
             {trustItems.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-[rgba(18,54,37,0.14)] bg-[rgba(255,255,255,0.62)] px-3 py-1 text-[0.74rem] font-semibold text-[#4e5d52]"
+                className="rounded-full border border-[var(--border)] bg-[var(--surface-muted)] px-3 py-1 text-[0.74rem] font-semibold text-[var(--text-soft)]"
               >
                 {item}
               </span>
@@ -64,14 +64,14 @@ export default function Home() {
 
         <div className="grid min-h-[min(54rem,calc(100vh-6rem))] items-center gap-10 max-md:min-h-0 max-md:gap-9 md:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)]">
           <Reveal className="space-y-8">
-            <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[#08523e]">
+            <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
               Better Muslim
             </div>
             <div className="space-y-5">
               <h1 className='max-w-[11ch] font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(3.2rem,8vw,6rem)] leading-[0.95] font-bold max-md:max-w-none'>
                 A calm Muslim companion for prayer, reading, and daily growth.
               </h1>
-              <p className="text-[1.02rem] leading-[1.8] text-[#617064]">
+              <p className="text-[1.02rem] leading-[1.8] text-[var(--text-secondary)]">
                 Better Muslim brings prayer times, Quran reading, Hadith study,
                 structured learning, and progress tracking into one focused
                 mobile experience with offline-first behavior where practical.
@@ -92,7 +92,7 @@ export default function Home() {
             </div>
             <div className="grid gap-4 md:grid-cols-[auto_auto] md:items-center md:justify-start">
               <Link
-                className="inline-flex min-h-13 w-full items-center justify-center rounded-full border border-[rgba(18,54,37,0.12)] bg-[rgba(255,250,241,0.72)] px-5 py-3 text-sm font-medium text-[#163328] transition-transform duration-200 hover:-translate-y-0.5 md:w-auto"
+                className="inline-flex min-h-13 w-full items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface-soft)] px-5 py-3 text-sm font-medium text-[var(--text-primary)] transition-transform duration-200 hover:-translate-y-0.5 md:w-auto"
                 href="#features"
               >
                 Explore Features
@@ -102,7 +102,7 @@ export default function Home() {
               {highlights.map((item) => (
                 <p
                   key={item}
-                  className="border-l-2 border-[rgba(184,148,62,0.4)] pl-4 text-[#617064]"
+                  className="border-l-2 border-[var(--accent-soft)] pl-4 text-[var(--text-secondary)]"
                 >
                   {item}
                 </p>
@@ -112,9 +112,9 @@ export default function Home() {
 
           <Reveal className="relative isolate overflow-x-clip" delay={0.08}>
             <div className="relative px-2 py-6 max-md:px-0">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.7),transparent_62%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--hero-glow),transparent_62%)]" />
               <Float
-                className="absolute left-1/2 top-1/2 h-[28rem] w-[22rem] -translate-x-1/2 -translate-y-[52%] rounded-[4rem] bg-[linear-gradient(180deg,rgba(255,251,244,0.94),rgba(234,244,238,0.84))] shadow-[0_40px_90px_rgba(15,41,31,0.08)] lg:w-[20rem] xl:w-[22rem] max-md:h-[22rem] max-md:w-[17rem]"
+                className="absolute left-1/2 top-1/2 h-[27rem] w-[22rem] -translate-x-1/2 -translate-y-[58%] rounded-[4rem] bg-[linear-gradient(180deg,var(--hero-shape-main-top),var(--hero-shape-main-bottom))] opacity-90 shadow-[0_40px_90px_rgba(var(--shadow-strong),0.08)] lg:w-[20rem] xl:w-[22rem] max-md:h-[21rem] max-md:w-[17rem] max-md:-translate-y-[60%]"
                 delay={0.15}
                 duration={9}
                 x={8}
@@ -123,7 +123,7 @@ export default function Home() {
                 <div className="h-full w-full" />
               </Float>
               <Float
-                className="absolute left-1/2 top-1/2 h-[24rem] w-[24rem] -translate-x-[82%] -translate-y-[62%] rotate-[-16deg] rounded-[4.5rem] border border-[rgba(18,54,37,0.08)] bg-[linear-gradient(135deg,rgba(220,239,230,0.42),rgba(255,255,255,0.12))] lg:h-[22rem] lg:w-[18rem] xl:h-[24rem] xl:w-[20rem] max-md:h-[18rem] max-md:w-[18rem]"
+                className="absolute left-1/2 top-1/2 h-[24rem] w-[24rem] -translate-x-[82%] -translate-y-[62%] rotate-[-16deg] rounded-[4.5rem] border border-[var(--border-faint)] bg-[linear-gradient(135deg,var(--hero-shape-side-top),var(--hero-shape-side-bottom))] lg:h-[22rem] lg:w-[18rem] xl:h-[24rem] xl:w-[20rem] max-md:h-[18rem] max-md:w-[18rem]"
                 delay={0.5}
                 duration={10}
                 rotate={3}
@@ -133,7 +133,7 @@ export default function Home() {
                 <div className="h-full w-full" />
               </Float>
               <Float
-                className="absolute left-1/2 top-1/2 h-[17rem] w-[28rem] -translate-x-[8%] -translate-y-[14%] rotate-[14deg] rounded-[3rem] border border-[rgba(184,148,62,0.16)] bg-[linear-gradient(135deg,rgba(255,245,221,0.7),rgba(255,255,255,0.1))] lg:h-[15rem] lg:w-[22rem] xl:h-[17rem] xl:w-[25rem] max-md:h-[12rem] max-md:w-[20rem]"
+                className="absolute left-1/2 top-1/2 h-[17rem] w-[28rem] -translate-x-[8%] -translate-y-[14%] rotate-[14deg] rounded-[3rem] border border-[var(--accent-soft)] bg-[linear-gradient(135deg,var(--hero-shape-accent-top),var(--hero-shape-accent-bottom))] lg:h-[15rem] lg:w-[22rem] xl:h-[17rem] xl:w-[25rem] max-md:h-[12rem] max-md:w-[20rem]"
                 delay={0.8}
                 duration={11}
                 rotate={-2}
@@ -143,7 +143,7 @@ export default function Home() {
                 <div className="h-full w-full" />
               </Float>
               <Float
-                className="absolute left-[5%] top-[14%] h-28 w-36 rotate-[-12deg] rounded-[2rem] border border-[rgba(13,122,92,0.16)] bg-[rgba(220,239,230,0.34)] max-md:hidden"
+                className="absolute left-[5%] top-[14%] h-28 w-36 rotate-[-12deg] rounded-[2rem] border border-[var(--brand-soft)] bg-[var(--hero-shape-green)] max-md:hidden"
                 delay={0.3}
                 duration={8}
                 rotate={4}
@@ -153,7 +153,7 @@ export default function Home() {
                 <div className="h-full w-full" />
               </Float>
               <Float
-                className="absolute bottom-[16%] right-[6%] h-24 w-44 rotate-[18deg] rounded-[2.2rem] border border-[rgba(184,148,62,0.2)] bg-[rgba(255,248,230,0.52)] max-md:hidden"
+                className="absolute bottom-[16%] right-[6%] h-24 w-44 rotate-[18deg] rounded-[2.2rem] border border-[var(--accent-soft)] bg-[var(--hero-shape-gold)] max-md:hidden"
                 delay={1}
                 duration={9}
                 rotate={-3}
@@ -168,11 +168,11 @@ export default function Home() {
                   delay={0.2}
                   y={10}
                 >
-                  <div className="rounded-[1.25rem] border border-[rgba(18,54,37,0.08)] bg-white px-5 py-3 shadow-[0_16px_32px_rgba(15,41,31,0.08)]">
-                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[#9aa39c]">
+                  <div className="rounded-[1.25rem] border border-[var(--border-faint)] bg-[var(--hero-card-bg)] px-5 py-3 shadow-[0_16px_32px_rgba(var(--shadow-strong),0.08)]">
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[var(--hero-card-muted)]">
                       Continue reading
                     </p>
-                    <p className="mt-1 text-[1.05rem] font-semibold text-[#163328]">
+                    <p className="mt-1 text-[1.05rem] font-semibold text-[var(--text-primary)]">
                       Al-Baqara
                     </p>
                   </div>
@@ -182,11 +182,11 @@ export default function Home() {
                   delay={0.7}
                   y={12}
                 >
-                  <div className="rounded-[1.25rem] border border-[rgba(18,54,37,0.08)] bg-white px-5 py-3 shadow-[0_16px_32px_rgba(15,41,31,0.08)]">
-                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[#9aa39c]">
+                  <div className="rounded-[1.25rem] border border-[var(--border-faint)] bg-[var(--hero-card-bg)] px-5 py-3 shadow-[0_16px_32px_rgba(var(--shadow-strong),0.08)]">
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[var(--hero-card-muted)]">
                       Saved on device
                     </p>
-                    <p className="mt-1 text-[1.05rem] font-semibold text-[#163328]">
+                    <p className="mt-1 text-[1.05rem] font-semibold text-[var(--text-primary)]">
                       Offline-first
                     </p>
                   </div>
@@ -196,11 +196,11 @@ export default function Home() {
                   delay={1.1}
                   y={9}
                 >
-                  <div className="rounded-[1.25rem] border border-[rgba(18,54,37,0.08)] bg-white px-5 py-3 shadow-[0_16px_32px_rgba(15,41,31,0.08)]">
-                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[#9aa39c]">
+                  <div className="rounded-[1.25rem] border border-[var(--border-faint)] bg-[var(--hero-card-bg)] px-5 py-3 shadow-[0_16px_32px_rgba(var(--shadow-strong),0.08)]">
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[var(--hero-card-muted)]">
                       Daily flow
                     </p>
-                    <p className="mt-1 text-[1.05rem] font-semibold text-[#163328]">
+                    <p className="mt-1 text-[1.05rem] font-semibold text-[var(--text-primary)]">
                       Prayer, Quran, Learn
                     </p>
                   </div>
@@ -210,8 +210,8 @@ export default function Home() {
                   delay={1.4}
                   y={11}
                 >
-                  <div className="rounded-[1.25rem] border border-[rgba(18,54,37,0.08)] bg-white px-5 py-3 shadow-[0_16px_32px_rgba(15,41,31,0.08)]">
-                    <p className="text-[0.95rem] font-medium text-[#163328]">
+                  <div className="rounded-[1.25rem] border border-[var(--border-faint)] bg-[var(--hero-card-bg)] px-5 py-3 shadow-[0_16px_32px_rgba(var(--shadow-strong),0.08)]">
+                    <p className="text-[0.95rem] font-medium text-[var(--text-primary)]">
                       Streaks and goals
                     </p>
                   </div>
@@ -221,11 +221,11 @@ export default function Home() {
                   delay={1.8}
                   y={10}
                 >
-                  <div className="rounded-[1.25rem] border border-[rgba(18,54,37,0.08)] bg-white px-5 py-3 shadow-[0_16px_32px_rgba(15,41,31,0.08)]">
-                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[#9aa39c]">
+                  <div className="rounded-[1.25rem] border border-[var(--border-faint)] bg-[var(--hero-card-bg)] px-5 py-3 shadow-[0_16px_32px_rgba(var(--shadow-strong),0.08)]">
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[var(--hero-card-muted)]">
                       Reading controls
                     </p>
-                    <p className="mt-1 text-[1.05rem] font-semibold text-[#163328]">
+                    <p className="mt-1 text-[1.05rem] font-semibold text-[var(--text-primary)]">
                       Theme and font size
                     </p>
                   </div>
@@ -245,7 +245,7 @@ export default function Home() {
                     height={1200}
                     sizes="(max-width: 768px) 80vw, (max-width: 1280px) 40vw, 35rem"
                     priority
-                    className="relative z-10 h-auto w-[min(100%,35rem)] drop-shadow-[0_34px_60px_rgba(15,41,31,0.2)] max-md:w-[min(100%,22rem)]"
+                    className="relative z-10 h-auto w-[min(100%,35rem)] drop-shadow-[0_34px_60px_rgba(var(--shadow-strong),0.2)] max-md:w-[min(100%,22rem)]"
                   />
                 </Float>
               </div>
@@ -256,13 +256,13 @@ export default function Home() {
 
       <Section id="features" className="pt-8">
         <Reveal className="mx-auto mb-10 max-w-[46rem] text-center max-md:mb-6">
-          <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[#08523e]">
+          <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
             Why it stands out
           </div>
           <h2 className='mt-2 font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(2.1rem,5vw,3.6rem)] leading-none font-bold'>
             Built around daily Muslim habits, not a cluttered feature dump.
           </h2>
-          <p className="mt-3 text-[1.02rem] leading-[1.8] text-[#617064]">
+          <p className="mt-3 text-[1.02rem] leading-[1.8] text-[var(--text-secondary)]">
             The app already supports the core habits people come back for:
             prayer awareness, reading, saving progress, revisiting material, and
             learning in a calmer interface.
@@ -275,7 +275,7 @@ export default function Home() {
                 <h3 className="mb-3 text-[1.15rem] font-bold">
                   {feature.title}
                 </h3>
-                <p className="text-[1.02rem] leading-[1.8] text-[#617064]">
+                <p className="text-[1.02rem] leading-[1.8] text-[var(--text-secondary)]">
                   {feature.description}
                 </p>
               </Card>
@@ -288,13 +288,13 @@ export default function Home() {
         <div className="grid gap-8 md:grid-cols-2 max-md:gap-5">
           <Reveal>
             <Card className="p-6 transition-transform duration-300 hover:-translate-y-1.5 max-md:rounded-[1.35rem] max-md:p-5">
-              <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[#08523e]">
+              <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
                 Reading experience
               </div>
               <h2 className='mb-3 mt-2 font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(2.1rem,5vw,3.6rem)] leading-none font-bold'>
                 Personalized without turning into noise.
               </h2>
-              <p className="text-[1.02rem] leading-[1.8] text-[#617064]">
+              <p className="text-[1.02rem] leading-[1.8] text-[var(--text-secondary)]">
                 Better Muslim keeps the experience adaptable with theme
                 controls, Arabic and English font sizing, and translation or
                 transliteration visibility settings, while keeping the interface
@@ -303,11 +303,11 @@ export default function Home() {
             </Card>
           </Reveal>
           <Reveal delay={0.08}>
-            <Card className="bg-[linear-gradient(135deg,rgba(13,122,92,0.08),rgba(184,148,62,0.08)),rgba(255,252,245,0.86)] p-6 transition-transform duration-300 hover:-translate-y-1.5 max-md:rounded-[1.35rem] max-md:p-5">
-              <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[#08523e]">
+            <Card className="bg-[linear-gradient(135deg,var(--brand-soft),rgba(184,148,62,0.08)),var(--surface)] p-6 transition-transform duration-300 hover:-translate-y-1.5 dark:bg-[linear-gradient(135deg,rgba(46,92,78,0.34),rgba(115,96,48,0.18)),var(--surface)] max-md:rounded-[1.35rem] max-md:p-5">
+              <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
                 Real product depth
               </div>
-              <ul className="mt-4 grid gap-4 text-[#617064]">
+              <ul className="mt-4 grid gap-4 text-[var(--text-secondary)]">
                 <li>
                   Prayer setup, local schedules, and next-prayer awareness
                 </li>
@@ -327,15 +327,15 @@ export default function Home() {
 
       <Section className="pt-6">
         <Reveal>
-          <Card className="grid gap-8 overflow-hidden bg-[linear-gradient(135deg,rgba(13,122,92,0.09),rgba(184,148,62,0.12)),rgba(255,252,245,0.94)] p-6 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] md:p-8">
+          <Card className="grid gap-8 overflow-hidden bg-[linear-gradient(135deg,var(--hero-preview-top),var(--hero-preview-bottom)),var(--surface)] p-6 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] md:p-8">
             <div>
-              <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[#08523e]">
+              <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
                 Android preview
               </div>
               <h2 className='mt-2 font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(2rem,4.4vw,3.2rem)] leading-none font-bold'>
                 Try the Android preview before release.
               </h2>
-              <p className="mt-4 text-[1.02rem] leading-[1.8] text-[#617064]">
+              <p className="mt-4 text-[1.02rem] leading-[1.8] text-[var(--text-secondary)]">
                 Android users can try Better Muslim early by downloading the
                 current preview build directly from Expo. No sign in or sign up
                 is required.
@@ -345,12 +345,12 @@ export default function Home() {
                   href={androidPreviewUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex min-h-13 items-center justify-center rounded-full bg-[#0d7a5c] px-5 py-3 text-sm font-medium text-[#f7f5ef] shadow-[0_16px_36px_rgba(13,122,92,0.22)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#08523e]"
+                  className="inline-flex min-h-13 items-center justify-center rounded-full bg-[var(--brand)] px-5 py-3 text-sm font-medium text-[var(--text-inverse)] shadow-[0_16px_36px_rgba(var(--shadow-brand),0.22)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[var(--brand-strong)]"
                 >
                   Try Android Preview
                 </a>
                 <Link
-                  className="inline-flex min-h-13 items-center justify-center rounded-full border border-[rgba(18,54,37,0.12)] bg-[rgba(255,250,241,0.72)] px-5 py-3 text-sm font-medium text-[#163328] transition-transform duration-200 hover:-translate-y-0.5"
+                  className="inline-flex min-h-13 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface-soft)] px-5 py-3 text-sm font-medium text-[var(--text-primary)] transition-transform duration-200 hover:-translate-y-0.5"
                   href="#android-install-guide"
                 >
                   View Install Guide
@@ -360,12 +360,12 @@ export default function Home() {
 
             <div
               id="android-install-guide"
-              className="rounded-[1.5rem] border border-[rgba(18,54,37,0.12)] bg-[rgba(255,255,255,0.72)] p-5 shadow-[0_14px_40px_rgba(15,41,31,0.08)]"
+              className="rounded-[1.5rem] border border-[var(--border)] bg-[var(--surface-strong)] p-5 shadow-[0_14px_40px_rgba(var(--shadow-strong),0.08)]"
             >
-              <div className="text-[0.8rem] font-bold uppercase tracking-[0.14em] text-[#08523e]">
+              <div className="text-[0.8rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
                 Install guide
               </div>
-              <ol className="mt-4 grid gap-4 text-[0.98rem] leading-[1.75] text-[#617064]">
+              <ol className="mt-4 grid gap-4 text-[0.98rem] leading-[1.75] text-[var(--text-secondary)]">
                 <li>Open the preview build link on your Android phone.</li>
                 <li>
                   Tap download on the Expo build page. No account is required.
@@ -383,7 +383,7 @@ export default function Home() {
                   app normally.
                 </li>
               </ol>
-              <p className="mt-4 text-sm leading-[1.7] text-[#617064]">
+              <p className="mt-4 text-sm leading-[1.7] text-[var(--text-secondary)]">
                 If you already installed an older preview, uninstall it first if
                 Android reports a signing conflict.
               </p>

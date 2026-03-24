@@ -8,13 +8,13 @@ const footerLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto border-t border-[rgba(18,54,37,0.12)] bg-[rgba(255,250,241,0.62)]">
+    <footer className="mt-auto border-t border-[var(--border)] bg-[var(--footer-bg)]">
       <div className="mx-auto flex w-[min(1180px,calc(100%-1.5rem))] flex-col gap-3 py-3 md:w-[min(1180px,calc(100%-4rem))] md:flex-row md:items-start md:justify-between md:gap-4 md:py-2">
         <div className="text-center md:text-left">
           <p className='block font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[1.45rem] leading-none font-bold md:text-[1.7rem]'>
             Better Muslim
           </p>
-          <p className="mx-auto mt-1 max-w-[32rem] leading-[1.55] text-[#617064] md:mx-0">
+          <p className="mx-auto mt-1 max-w-[32rem] leading-[1.55] text-[var(--text-secondary)] md:mx-0">
             A calm Muslim companion for prayer, Quran, Hadith, and structured
             daily learning.
           </p>
@@ -27,7 +27,7 @@ export function SiteFooter() {
             <Link
               key={link.href}
               href={link.href}
-              className="inline-flex min-h-9 items-center justify-center rounded-xl border border-[rgba(18,54,37,0.1)] bg-[rgba(255,255,255,0.56)] px-2 py-2 text-[0.87rem] font-medium text-[#55665b] transition-colors hover:text-[#163328] md:min-h-0 md:rounded-none md:border-0 md:bg-transparent md:px-0 md:py-0 md:text-[0.95rem] md:font-normal md:text-[#617064]"
+              className="inline-flex min-h-9 items-center justify-center rounded-xl border border-[var(--border-soft)] bg-[var(--surface-muted)] px-2 py-2 text-[0.87rem] font-medium text-[var(--text-muted)] transition-colors hover:text-[var(--text-primary)] md:min-h-0 md:rounded-none md:border-0 md:bg-transparent md:px-0 md:py-0 md:text-[0.95rem] md:font-normal md:text-[var(--text-secondary)]"
             >
               {link.label}
             </Link>

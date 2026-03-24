@@ -189,10 +189,11 @@ export function StoreCta({ platforms }: { platforms?: WaitlistPlatform[] }) {
             key={button.label}
             type="button"
             variant={button.variant}
+            className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand)]/45"
             onClick={() => openWaitlist(button.platform)}
           >
             <span
-              className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[rgba(255,255,255,0.16)] text-current"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--surface-overlay)] text-current"
               aria-hidden="true"
             >
               <button.icon />
@@ -218,44 +219,45 @@ export function StoreCta({ platforms }: { platforms?: WaitlistPlatform[] }) {
                 aria-modal="true"
                 aria-labelledby="waitlist-title"
                 aria-describedby="waitlist-description"
-                className="relative w-full max-w-md rounded-[2rem] border border-[rgba(18,54,37,0.12)] bg-[linear-gradient(180deg,rgba(255,252,245,0.98),rgba(248,243,233,0.98))] p-6 shadow-[0_28px_90px_rgba(15,41,31,0.24)]"
+                className="relative w-full max-w-md rounded-[2rem] border border-[var(--border)] bg-[linear-gradient(180deg,var(--surface-strong),var(--surface-soft))] p-6 shadow-[0_28px_90px_rgba(var(--shadow-strong),0.24)]"
               >
+                <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-[linear-gradient(90deg,transparent,var(--brand),transparent)]" />
                 <button
                   type="button"
                   onClick={closeWaitlist}
-                  className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(18,54,37,0.12)] bg-[rgba(255,255,255,0.82)] text-[#55665b]"
+                  className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface-strong)] text-[var(--text-muted)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--surface-soft)]"
                 >
                   <span aria-hidden="true" className="text-xl leading-none">
                     ×
                   </span>
                 </button>
 
-                <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgba(13,122,92,0.12),rgba(184,148,62,0.18))] text-[#08523e]">
+                <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full bg-[linear-gradient(135deg,var(--brand-soft),rgba(184,148,62,0.18))] text-[var(--brand-strong)]">
                   <span className="text-xl font-bold">BM</span>
                 </div>
-                <p className="mt-5 text-center text-[0.78rem] font-bold uppercase tracking-[0.16em] text-[#08523e]">
+                <p className="mt-5 text-center text-[0.78rem] font-bold uppercase tracking-[0.16em] text-[var(--brand-strong)]">
                   Waitlist
                 </p>
                 <h2
                   id="waitlist-title"
-                  className='mt-2 text-center font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[2rem] leading-none font-bold text-[#163328]'
+                  className='mt-2 text-center font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[2rem] leading-none font-bold text-[var(--text-primary)]'
                 >
                   Get notified when it launches
                 </h2>
                 <p
                   id="waitlist-description"
-                  className="mt-3 text-center text-[1rem] leading-[1.75] text-[#617064]"
+                  className="mt-3 text-center text-[1rem] leading-[1.75] text-[var(--text-secondary)]"
                 >
                   Join the Better Muslim waitlist and we&apos;ll email you when
                   the app is live on your platform.
                 </p>
 
                 {successMessage ? (
-                  <div className="mt-6 rounded-[1.5rem] border border-[rgba(13,122,92,0.16)] bg-[rgba(233,245,239,0.9)] p-5 text-center">
-                    <p className="text-[0.8rem] font-bold uppercase tracking-[0.12em] text-[#08523e]">
+                  <div className="mt-6 rounded-[1.5rem] border border-[var(--success-border)] bg-[var(--success-bg)] p-5 text-center">
+                    <p className="text-[0.8rem] font-bold uppercase tracking-[0.12em] text-[var(--brand-strong)]">
                       You&apos;re in
                     </p>
-                    <p className="mt-2 text-[1rem] leading-[1.75] text-[#355347]">
+                    <p className="mt-2 text-[1rem] leading-[1.75] text-[var(--success-text)]">
                       {successMessage}
                     </p>
                     <Button
@@ -270,7 +272,7 @@ export function StoreCta({ platforms }: { platforms?: WaitlistPlatform[] }) {
                 ) : (
                   <form className="mt-6 grid gap-4" onSubmit={handleSubmit}>
                     <label className="grid gap-2">
-                      <span className="text-[0.84rem] font-semibold text-[#163328]">
+                      <span className="text-[0.84rem] font-semibold text-[var(--text-primary)]">
                         Email
                       </span>
                       <input
@@ -279,16 +281,18 @@ export function StoreCta({ platforms }: { platforms?: WaitlistPlatform[] }) {
                         autoComplete="email"
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
-                        className="min-h-12 rounded-2xl border border-[rgba(18,54,37,0.14)] bg-[rgba(255,255,255,0.8)] px-4 text-[#163328] outline-none transition-colors placeholder:text-[#8a958d] focus:border-[#0d7a5c]"
+                        className="min-h-12 rounded-2xl border border-[var(--border)] bg-[var(--surface-strong)] px-4 text-[var(--text-primary)] outline-none transition-[border-color,box-shadow,background-color] placeholder:text-[var(--text-soft)] focus:border-[var(--brand)] focus:shadow-[0_0_0_4px_rgba(var(--shadow-brand),0.12)]"
                         placeholder="you@example.com"
                       />
                       {emailError ? (
-                        <p className="text-sm text-[#a64832]">{emailError}</p>
+                        <p className="text-sm text-[var(--danger)]">
+                          {emailError}
+                        </p>
                       ) : null}
                     </label>
 
                     <label className="grid gap-2">
-                      <span className="text-[0.84rem] font-semibold text-[#163328]">
+                      <span className="text-[0.84rem] font-semibold text-[var(--text-primary)]">
                         Notify me for
                       </span>
                       <select
@@ -296,7 +300,7 @@ export function StoreCta({ platforms }: { platforms?: WaitlistPlatform[] }) {
                         onChange={(event) =>
                           setPlatform(event.target.value as WaitlistPlatform)
                         }
-                        className="min-h-12 rounded-2xl border border-[rgba(18,54,37,0.14)] bg-[rgba(255,255,255,0.8)] px-4 text-[#163328] outline-none transition-colors focus:border-[#0d7a5c]"
+                        className="min-h-12 rounded-2xl border border-[var(--border)] bg-[var(--surface-strong)] px-4 text-[var(--text-primary)] outline-none transition-[border-color,box-shadow,background-color] focus:border-[var(--brand)] focus:shadow-[0_0_0_4px_rgba(var(--shadow-brand),0.12)]"
                       >
                         {platformOptions.map((option) => (
                           <option key={option.value} value={option.value}>
@@ -305,19 +309,19 @@ export function StoreCta({ platforms }: { platforms?: WaitlistPlatform[] }) {
                         ))}
                       </select>
                       {platformError ? (
-                        <p className="text-sm text-[#a64832]">
+                        <p className="text-sm text-[var(--danger)]">
                           {platformError}
                         </p>
                       ) : null}
                     </label>
 
-                    <p className="text-sm leading-[1.7] text-[#617064]">
+                    <p className="text-sm leading-[1.7] text-[var(--text-secondary)]">
                       We&apos;ll only use your email to notify you about the app
                       launch and closely related release updates.
                     </p>
 
                     {submitError ? (
-                      <div className="rounded-2xl border border-[rgba(166,72,50,0.16)] bg-[rgba(252,242,239,0.92)] px-4 py-3 text-sm text-[#a64832]">
+                      <div className="rounded-2xl border border-[var(--danger-border)] bg-[var(--danger-bg)] px-4 py-3 text-sm text-[var(--danger)]">
                         {submitError}
                       </div>
                     ) : null}

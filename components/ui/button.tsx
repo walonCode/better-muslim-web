@@ -8,13 +8,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-[#0d7a5c] text-[#f7f5ef] shadow-[0_16px_36px_rgba(13,122,92,0.22)] hover:bg-[#08523e]",
+          "bg-[var(--brand)] text-[var(--text-inverse)] shadow-[0_16px_36px_rgba(var(--shadow-brand),0.22)] hover:bg-[var(--brand-strong)]",
         secondary:
-          "border border-[rgba(18,54,37,0.12)] bg-[rgba(255,250,241,0.72)] text-[#163328]",
+          "border border-[var(--border)] bg-[var(--surface-soft)] text-[var(--text-primary)]",
         store:
-          "min-w-[13.5rem] justify-start gap-3 border border-[rgba(12,64,48,0.14)] bg-[rgba(255,252,245,0.88)] text-[#163328] shadow-[0_12px_30px_rgba(16,41,31,0.08)]",
+          "min-w-[13.5rem] justify-start gap-3 border border-[var(--border)] bg-[var(--surface)] text-[var(--text-primary)] shadow-[0_12px_30px_rgba(var(--shadow-strong),0.08)]",
         storePrimary:
-          "min-w-[13.5rem] justify-start gap-3 bg-[linear-gradient(135deg,#0d7a5c,#08523e)] text-[#f8f5ef] shadow-[0_12px_30px_rgba(16,41,31,0.14)]",
+          "min-w-[13.5rem] justify-start gap-3 bg-[linear-gradient(135deg,var(--brand),var(--brand-strong))] text-[var(--text-inverse)] shadow-[0_12px_30px_rgba(var(--shadow-strong),0.14)]",
       },
       fullWidth: {
         true: "w-full",
