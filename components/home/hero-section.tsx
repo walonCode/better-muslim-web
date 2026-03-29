@@ -133,6 +133,59 @@ export function HeroSection({
         <Reveal className="relative isolate overflow-x-clip" delay={0.08}>
           <div className="relative px-2 py-6 max-md:px-0">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--hero-glow),transparent_62%)]" />
+            <motion.div
+              aria-hidden
+              className="absolute left-[14%] top-[8%] h-40 w-40 rounded-full bg-[var(--hero-shape-green)] blur-3xl"
+              animate={
+                shouldReduceMotion
+                  ? undefined
+                  : {
+                      x: [0, 18, -10, 0],
+                      y: [0, -16, 10, 0],
+                      opacity: [0.28, 0.45, 0.24, 0.28],
+                    }
+              }
+              transition={{
+                duration: 12,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "easeInOut",
+              }}
+            />
+            <motion.div
+              aria-hidden
+              className="absolute bottom-[6%] right-[10%] h-52 w-52 rounded-full bg-[var(--hero-shape-gold)] blur-3xl"
+              animate={
+                shouldReduceMotion
+                  ? undefined
+                  : {
+                      x: [0, -22, 12, 0],
+                      y: [0, 12, -16, 0],
+                      opacity: [0.22, 0.36, 0.18, 0.22],
+                    }
+              }
+              transition={{
+                duration: 14,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "easeInOut",
+              }}
+            />
+            <motion.div
+              aria-hidden
+              className="absolute left-1/2 top-1/2 h-[28rem] w-[8rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[linear-gradient(180deg,transparent,var(--surface-overlay),transparent)] blur-2xl"
+              animate={
+                shouldReduceMotion
+                  ? undefined
+                  : {
+                      rotate: [12, 0, -10, 12],
+                      opacity: [0.2, 0.34, 0.16, 0.2],
+                    }
+              }
+              transition={{
+                duration: 16,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "easeInOut",
+              }}
+            />
             <Float
               className="absolute left-1/2 top-1/2 h-[27rem] w-[22rem] -translate-x-1/2 -translate-y-[58%] rounded-[4rem] bg-[linear-gradient(180deg,var(--hero-shape-main-top),var(--hero-shape-main-bottom))] opacity-90 shadow-[0_40px_90px_rgba(var(--shadow-strong),0.08)] lg:w-[20rem] xl:w-[22rem] max-md:h-[21rem] max-md:w-[17rem] max-md:-translate-y-[60%]"
               delay={0.15}
@@ -235,14 +288,17 @@ export function HeroSection({
                 y={14}
               >
                 <motion.div
+                  style={{ perspective: 1200 }}
                   initial={
                     shouldReduceMotion
                       ? false
                       : {
                           opacity: 0,
-                          y: 26,
-                          scale: 0.94,
-                          rotate: -2,
+                          y: 40,
+                          scale: 0.9,
+                          rotateX: 10,
+                          rotateY: -20,
+                          rotateZ: -2,
                           filter: "blur(12px)",
                         }
                   }
@@ -253,7 +309,9 @@ export function HeroSection({
                           opacity: 1,
                           y: 0,
                           scale: 1,
-                          rotate: 0,
+                          rotateX: 15,
+                          rotateY: -15,
+                          rotateZ: -2,
                           filter: "blur(0px)",
                         }
                   }
@@ -263,17 +321,25 @@ export function HeroSection({
                     ease: [0.16, 1, 0.3, 1],
                   }}
                   whileHover={
-                    shouldReduceMotion ? undefined : { y: -5, rotate: -1.2 }
+                    shouldReduceMotion
+                      ? undefined
+                      : {
+                          y: -10,
+                          scale: 1.02,
+                          rotateX: 5,
+                          rotateY: -5,
+                          rotateZ: 0,
+                        }
                   }
                 >
                   <Image
-                    src="/phone_image_transparent.png"
-                    alt="Better Muslim app hero image shown on an Android phone"
-                    width={1000}
-                    height={1200}
+                    src="/screenshots/showcase-screen-03.png"
+                    alt="Better Muslim app home screen preview"
+                    width={688}
+                    height={1532}
                     sizes="(max-width: 768px) 80vw, (max-width: 1280px) 40vw, 35rem"
                     priority
-                    className="relative z-10 h-auto w-[min(100%,35rem)] drop-shadow-[0_34px_60px_rgba(var(--shadow-strong),0.2)] max-md:w-[min(100%,22rem)]"
+                    className="relative z-10 h-auto w-[min(100%,24rem)] object-contain mix-blend-multiply drop-shadow-[0_28px_52px_rgba(var(--shadow-strong),0.22)] max-md:w-[min(100%,17rem)]"
                   />
                 </motion.div>
               </Float>

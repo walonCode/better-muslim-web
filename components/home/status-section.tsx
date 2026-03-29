@@ -18,14 +18,26 @@ export function StatusSection({
           {statusItems.map((item, index) => (
             <motion.div
               key={item.title}
+              initial={
+                shouldReduceMotion
+                  ? false
+                  : { opacity: 0, y: 24, scale: 0.96, filter: "blur(8px)" }
+              }
+              whileInView={
+                shouldReduceMotion
+                  ? undefined
+                  : { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }
+              }
+              viewport={{ once: true, amount: 0.28 }}
               whileHover={
                 shouldReduceMotion
                   ? undefined
-                  : { y: -6, rotate: index === 1 ? 0.4 : -0.4, scale: 1.01 }
+                  : { y: -8, rotate: index === 1 ? 0.5 : -0.5, scale: 1.015 }
               }
-              transition={{ duration: 0.22 }}
+              transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
             >
-              <Card className="bg-[linear-gradient(180deg,var(--surface),var(--surface-strong))] p-5 hover:border-[var(--brand-soft)] hover:shadow-[0_28px_80px_rgba(var(--shadow-brand),0.14)]">
+              <Card className="group relative overflow-hidden bg-[linear-gradient(180deg,var(--surface),var(--surface-strong))] p-5 hover:border-[var(--brand-soft)] hover:shadow-[0_28px_80px_rgba(var(--shadow-brand),0.14)]">
+                <div className="pointer-events-none absolute -right-8 top-0 h-20 w-20 rounded-full bg-[var(--brand-soft)] opacity-0 blur-2xl transition duration-500 group-hover:opacity-100" />
                 <p className="text-[0.78rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
                   {item.title}
                 </p>
