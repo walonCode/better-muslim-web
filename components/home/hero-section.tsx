@@ -53,12 +53,11 @@ export function HeroSection({
           </div>
           <div className="space-y-5">
             <h1 className='max-w-[11ch] font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(3.2rem,8vw,6rem)] leading-[0.95] font-bold max-md:max-w-none'>
-              A calm Muslim companion for prayer, reading, and daily growth.
+              A calm Muslim companion for everyday worship.
             </h1>
             <p className="text-[1.02rem] leading-[1.8] text-[var(--text-secondary)]">
-              Better Muslim brings prayer times, Quran reading, Hadith study,
-              structured learning, and progress tracking into one focused mobile
-              experience with offline-first behavior where practical.
+              Prayer times, Quran and Hadith reading, structured learning,
+              widgets, and reminders in one focused app.
             </p>
           </div>
           <motion.div
@@ -198,7 +197,7 @@ export function HeroSection({
                     Saved on device
                   </p>
                   <p className="mt-1 text-[1.05rem] font-semibold text-[var(--text-primary)]">
-                    Offline-first
+                    Offline-first data
                   </p>
                 </div>
               </Float>
@@ -212,7 +211,7 @@ export function HeroSection({
                     Daily flow
                   </p>
                   <p className="mt-1 text-[1.05rem] font-semibold text-[var(--text-primary)]">
-                    Prayer, Quran, Learn
+                    Prayer, Quran, Widgets
                   </p>
                 </div>
               </Float>
@@ -223,7 +222,7 @@ export function HeroSection({
               >
                 <div className="rounded-[1.25rem] border border-[var(--border-faint)] bg-[var(--hero-card-bg)] px-5 py-3 shadow-[0_16px_32px_rgba(var(--shadow-strong),0.08)]">
                   <p className="text-[0.95rem] font-medium text-[var(--text-primary)]">
-                    Streaks and goals
+                    Reminders and streaks
                   </p>
                 </div>
               </Float>

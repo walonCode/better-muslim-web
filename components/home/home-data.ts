@@ -2,7 +2,7 @@ export const featureCards = [
   {
     title: "Daily companion, not just a reader",
     description:
-      "Start from a home dashboard built around prayer times, next actions, streaks, and the parts of the app you actually revisit.",
+      "Start from a home dashboard built around prayer times, next actions, streaks, reminders, and the parts of the app you actually revisit.",
   },
   {
     title: "Quran that fits real reading habits",
@@ -10,21 +10,21 @@ export const featureCards = [
       "Read by surah or juz with Arabic text, translation, transliteration, bookmarks, and continue-reading support.",
   },
   {
-    title: "Hadith study without friction",
+    title: "Widgets that stay useful all day",
     description:
-      "Browse collections and sections, search faster with on-device caching, and keep your place as you study.",
+      "Add Prayer, Hadith, Dua, or Verse widgets with rotating content, quick open actions, and copy/share support for daily reflection.",
   },
   {
-    title: "Learn beyond reading",
+    title: "Notifications you can actually tune",
     description:
-      "Move through Salah, Duas, Sunnah, etiquette, Arabic, and Islamic basics in a structured learning hub.",
+      "Control prayer, quiz, and daily inspiration reminders with clear permission status, scheduling controls, and action buttons like snooze.",
   },
 ] as const;
 
 export const highlights = [
-  "Prayer times, progress, streaks, and resume flows in one place",
+  "Prayer times, progress, streaks, widgets, and resume flows in one place",
   "Quran, Hadith, and Learn in a calmer daily-use layout",
-  "Local bookmarks, backups, and reader settings stored on device",
+  "Local bookmarks, backups, reader settings, and reminder preferences stored on device",
 ] as const;
 
 export const trustItems = [
@@ -47,7 +47,8 @@ export const statusItems = [
   {
     title: "Core experience",
     value: "Ready today",
-    description: "Prayer, Quran, Hadith, Learn, search, and progress tools.",
+    description:
+      "Prayer, Quran, Hadith, Learn, reminders, and home widgets are available now.",
   },
 ] as const;
 
@@ -57,12 +58,12 @@ export const insideCards = [
     body: "See your next prayer, current streak, and where to resume without digging through tabs.",
   },
   {
-    title: "Search that spans the app",
-    body: "Find Quran, Hadith, and Learn content from one place instead of repeating the same search three times.",
+    title: "Widget modes for daily rotation",
+    body: "Switch between Prayer, Hadith, Dua, and Verse widgets with snapshots that refresh through the day and open back into the app.",
   },
   {
-    title: "Progress that stays with you",
-    body: "Keep your place with bookmarks, continue-reading flows, local storage, and backup tools that fit repeat use.",
+    title: "Reminders with real control",
+    body: "Configure prayer, quiz, and daily inspiration reminders, then use notification actions like snooze or done without losing your routine.",
   },
 ] as const;
 
@@ -72,8 +73,8 @@ export const socialProofItems = [
     body: "The app is shaped around the flows people come back for every day: prayer awareness, reading, saving progress, and picking up where they left off.",
   },
   {
-    title: "Early tester friendly",
-    body: "Android preview access is open now so people can try the product early, send feedback quickly, and help shape the release.",
+    title: "Recent updates are practical",
+    body: "Recent builds focused on daily behavior: improved reminder scheduling, clearer notification settings, and richer widget modes with share actions.",
   },
 ] as const;
 
@@ -97,6 +98,11 @@ export const faqItems = [
     question: "What should preview testers expect?",
     answer:
       "The Android preview is for early feedback. You may see changes between builds, and older preview installs may need to be removed if Android reports a signing conflict.",
+  },
+  {
+    question: "What’s new in the latest preview updates?",
+    answer:
+      "Recent updates added stronger notification controls, widget mode improvements across prayer/hadith/dua/verse, and copy/share actions for daily content widgets.",
   },
 ] as const;
 
