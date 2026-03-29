@@ -1,0 +1,58 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { featureCards } from "@/components/home/home-data";
+import { Reveal } from "@/components/motion/reveal";
+import { Section } from "@/components/section";
+import { Card } from "@/components/ui/card";
+
+export function FeaturesSection({
+  shouldReduceMotion,
+}: {
+  shouldReduceMotion: boolean;
+}) {
+  return (
+    <Section id="features" className="pt-8">
+      <Reveal className="mx-auto mb-10 max-w-[46rem] text-center max-md:mb-6">
+        <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
+          Why it stands out
+        </div>
+        <h2 className='mt-2 font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(2.1rem,5vw,3.6rem)] leading-none font-bold'>
+          Built around daily Muslim habits, not a cluttered feature dump.
+        </h2>
+        <p className="mt-3 text-[1.02rem] leading-[1.8] text-[var(--text-secondary)]">
+          The app already supports the core habits people come back for: prayer
+          awareness, reading, saving progress, revisiting material, and learning
+          in a calmer interface.
+        </p>
+      </Reveal>
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        {featureCards.map((feature, index) => (
+          <Reveal key={feature.title} delay={index * 0.08}>
+            <motion.div
+              whileHover={
+                shouldReduceMotion
+                  ? undefined
+                  : {
+                      y: -8,
+                      rotate: index % 2 === 0 ? -0.6 : 0.6,
+                      scale: 1.01,
+                    }
+              }
+              transition={{ duration: 0.22 }}
+            >
+              <Card className="min-h-[15rem] border-[var(--border)] bg-[linear-gradient(180deg,var(--surface),var(--surface-strong))] p-6 shadow-[0_20px_70px_rgba(var(--shadow-strong),0.12)] hover:border-[var(--brand-soft)] hover:shadow-[0_30px_90px_rgba(var(--shadow-brand),0.16)] max-md:rounded-[1.35rem] max-md:p-5">
+                <h3 className="mb-3 text-[1.15rem] font-bold">
+                  {feature.title}
+                </h3>
+                <p className="text-[1.02rem] leading-[1.8] text-[var(--text-secondary)]">
+                  {feature.description}
+                </p>
+              </Card>
+            </motion.div>
+          </Reveal>
+        ))}
+      </div>
+    </Section>
+  );
+}
