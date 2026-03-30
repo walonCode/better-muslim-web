@@ -9,6 +9,25 @@ import { Section } from "@/components/section";
 import { StoreCta } from "@/components/store-cta";
 import { Button } from "@/components/ui/button";
 
+const heroTrustStats = [
+  {
+    label: "Preview Status",
+    value: "Android live now",
+  },
+  {
+    label: "Works Without",
+    value: "Account setup",
+  },
+  {
+    label: "Built Around",
+    value: "Arabic mastery",
+  },
+  {
+    label: "Daily Support",
+    value: "Widgets + reminders",
+  },
+] as const;
+
 export function HeroSection({
   shouldReduceMotion,
   onOpenAndroidPreview,
@@ -103,6 +122,45 @@ export function HeroSection({
               <StoreCta platforms={["ios"]} />
             </motion.div>
           </motion.div>
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+            {heroTrustStats.map((item, index) => (
+              <motion.div
+                key={item.label}
+                initial={
+                  shouldReduceMotion
+                    ? false
+                    : { opacity: 0, y: 24, scale: 0.96, filter: "blur(10px)" }
+                }
+                animate={
+                  shouldReduceMotion
+                    ? undefined
+                    : { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }
+                }
+                transition={{
+                  duration: 0.65,
+                  delay: 0.3 + index * 0.08,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                whileHover={
+                  shouldReduceMotion
+                    ? undefined
+                    : {
+                        y: -4,
+                        scale: 1.012,
+                        rotate: index % 2 === 0 ? -0.4 : 0.4,
+                      }
+                }
+                className="rounded-[1.35rem] border border-[var(--border-faint)] bg-[linear-gradient(180deg,var(--surface),var(--surface-strong))] p-4 shadow-[0_16px_36px_rgba(var(--shadow-strong),0.08)]"
+              >
+                <p className="text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
+                  {item.label}
+                </p>
+                <p className="mt-2 text-[0.98rem] font-semibold text-[var(--text-primary)]">
+                  {item.value}
+                </p>
+              </motion.div>
+            ))}
+          </div>
           <div className="grid gap-4">
             {highlights.map((item, index) => (
               <motion.p
@@ -332,15 +390,53 @@ export function HeroSection({
                         }
                   }
                 >
-                  <Image
-                    src="/screenshots/showcase-screen-03.png"
-                    alt="Better Muslim app home screen preview"
-                    width={688}
-                    height={1532}
-                    sizes="(max-width: 768px) 80vw, (max-width: 1280px) 40vw, 35rem"
-                    priority
-                    className="relative z-10 h-auto w-[min(100%,24rem)] object-contain mix-blend-multiply drop-shadow-[0_28px_52px_rgba(var(--shadow-strong),0.22)] max-md:w-[min(100%,17rem)]"
-                  />
+                  <div className="relative">
+                    <motion.div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-y-[8%] left-[-10%] z-20 w-[34%] skew-x-[-18deg] rounded-full bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.45),transparent)] opacity-0 blur-xl dark:bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.16),transparent)]"
+                      animate={
+                        shouldReduceMotion
+                          ? undefined
+                          : {
+                              x: ["-140%", "240%"],
+                              opacity: [0, 0.36, 0],
+                            }
+                      }
+                      transition={{
+                        duration: 3.8,
+                        delay: 1.4,
+                        repeat: Number.POSITIVE_INFINITY,
+                        repeatDelay: 2.8,
+                        ease: [0.4, 0, 0.2, 1],
+                      }}
+                    />
+                    <motion.div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 -z-10 rounded-[3rem] bg-[radial-gradient(circle_at_center,rgba(var(--shadow-brand),0.14),transparent_64%)]"
+                      animate={
+                        shouldReduceMotion
+                          ? undefined
+                          : {
+                              scale: [0.92, 1.04, 0.96],
+                              opacity: [0.18, 0.34, 0.2],
+                            }
+                      }
+                      transition={{
+                        duration: 5.4,
+                        repeat: Number.POSITIVE_INFINITY,
+                        ease: "easeInOut",
+                      }}
+                    />
+                    <Image
+                      src="/screenshots/showcase-screen-03.png"
+                      alt="Better Muslim app home screen preview"
+                      width={688}
+                      height={1532}
+                      sizes="(max-width: 768px) 80vw, (max-width: 1280px) 40vw, 35rem"
+                      priority
+                      className="relative z-10 h-auto w-[min(100%,24rem)] object-contain mix-blend-multiply drop-shadow-[0_28px_52px_rgba(var(--shadow-strong),0.22)] max-md:w-[min(100%,17rem)]"
+                    />
+                  </div>
                 </motion.div>
               </Float>
             </div>

@@ -26,13 +26,29 @@ export function Reveal({
   return (
     <motion.div
       className={cn(className)}
-      initial={{ opacity: 0, y: distance, scale: 0.965, filter: "blur(14px)" }}
-      whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-      viewport={{ once: true, amount: 0.2 }}
+      style={{ transformPerspective: 1200 }}
+      initial={{
+        opacity: 0,
+        y: distance + 6,
+        scale: 0.95,
+        rotateX: 7,
+        transformOrigin: "50% 100%",
+        filter: "blur(18px)",
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        rotateX: 0,
+        filter: "blur(0px)",
+      }}
+      viewport={{ once: true, amount: 0.16 }}
       transition={{
-        duration: 0.82,
         delay,
-        ease: [0.16, 1, 0.3, 1],
+        type: "spring",
+        stiffness: 110,
+        damping: 18,
+        mass: 0.82,
       }}
     >
       {children}
