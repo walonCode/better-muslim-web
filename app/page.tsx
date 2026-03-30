@@ -3,6 +3,7 @@
 import { useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { AndroidPreviewModal } from "@/components/home/android-preview-modal";
+import { CredibilitySection } from "@/components/home/credibility-section";
 import { FaqSection } from "@/components/home/faq-section";
 import { FeaturesSection } from "@/components/home/features-section";
 import { HeroSection } from "@/components/home/hero-section";
@@ -53,6 +54,7 @@ export default function Home() {
         <FeaturesSection shouldReduceMotion={shouldReduceMotion} />
         <InsideAppSection />
         <SocialProofSection shouldReduceMotion={shouldReduceMotion} />
+        <CredibilitySection shouldReduceMotion={shouldReduceMotion} />
         <FaqSection />
       </div>
 

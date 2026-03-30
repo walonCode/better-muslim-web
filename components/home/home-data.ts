@@ -78,6 +78,21 @@ export const socialProofItems = [
   },
 ] as const;
 
+export const credibilityPrinciples = [
+  {
+    title: "Built around daily use",
+    body: "The product is shaped around recurring habits: prayer awareness, reading, Arabic mastery, reminders, and picking up where you left off.",
+  },
+  {
+    title: "Transparent preview stage",
+    body: "Android preview access is open now, iPhone waitlist is active, and early feedback is helping shape what gets improved next.",
+  },
+  {
+    title: "Respectful by default",
+    body: "No forced account creation, offline-first behavior where practical, and a calmer interface instead of crowded feature overload.",
+  },
+] as const;
+
 export const faqItems = [
   {
     question: "Is Better Muslim live yet?",

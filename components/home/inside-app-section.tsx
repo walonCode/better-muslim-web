@@ -7,7 +7,7 @@ import {
   useTransform,
 } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Float } from "@/components/motion/float";
 import { Reveal } from "@/components/motion/reveal";
 import { Section } from "@/components/section";
@@ -53,6 +53,19 @@ const SHOWCASE_ITEMS = [
 
 export function InsideAppSection() {
   const shouldReduceMotion = useReducedMotion() ?? false;
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+    const syncBreakpoint = () => setIsDesktop(mediaQuery.matches);
+
+    syncBreakpoint();
+    mediaQuery.addEventListener("change", syncBreakpoint);
+
+    return () => {
+      mediaQuery.removeEventListener("change", syncBreakpoint);
+    };
+  }, []);
 
   return (
     <Section className="pt-14 md:pt-18">
@@ -69,19 +82,21 @@ export function InsideAppSection() {
         </p>
       </Reveal>
 
-      <div className="space-y-16 md:hidden md:space-y-24">
-        {SHOWCASE_ITEMS.map((item, index) => (
-          <MobileShowcaseStory
-            key={item.src}
-            index={index}
-            item={item}
-            reverseDesktop={index % 2 === 1}
-            shouldReduceMotion={shouldReduceMotion}
-          />
-        ))}
-      </div>
-
-      <DesktopPinnedShowcase shouldReduceMotion={shouldReduceMotion} />
+      {isDesktop ? (
+        <DesktopPinnedShowcase shouldReduceMotion={shouldReduceMotion} />
+      ) : (
+        <div className="space-y-16 md:space-y-24">
+          {SHOWCASE_ITEMS.map((item, index) => (
+            <MobileShowcaseStory
+              key={item.src}
+              index={index}
+              item={item}
+              reverseDesktop={index % 2 === 1}
+              shouldReduceMotion={shouldReduceMotion}
+            />
+          ))}
+        </div>
+      )}
     </Section>
   );
 }
@@ -126,7 +141,7 @@ function MobileShowcaseStory({
   );
 
   return (
-    <Reveal className="relative md:hidden" delay={index * 0.05}>
+    <Reveal className="relative" delay={index * 0.05}>
       <article
         ref={articleRef}
         className="relative py-6 md:py-8"
