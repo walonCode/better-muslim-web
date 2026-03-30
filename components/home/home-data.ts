@@ -122,4 +122,4 @@ export const faqItems = [
 ] as const;
 
 export const androidPreviewUrl =
-  "https://expo.dev/accounts/walon/projects/better-muslim/builds/2e8a7732-53ba-4585-bdd8-bdc217ddf8b2";
+  "https://expo.dev/accounts/walon/projects/better-muslim/builds/2a6291ae-e90e-4178-81db-dcfb7623e3fe";
