@@ -97,6 +97,7 @@
 }
 
 html {
+  position: relative;
   color-scheme: light;
 }
 
@@ -105,6 +106,7 @@ html.dark {
 }
 
 body {
+  position: relative;
   background:
     radial-gradient(
       circle at top left,
