@@ -99,6 +99,12 @@
 html {
   position: relative;
   color-scheme: light;
+  /* Apple-style smooth scrolling */
+  scroll-behavior: smooth;
+  /* Subpixel font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 html.dark {
@@ -107,22 +113,70 @@ html.dark {
 
 body {
   position: relative;
+  /* Richer elliptical gradient — more depth than hard circles */
   background:
     radial-gradient(
-      circle at top left,
+      ellipse 80% 60% at 8% 0%,
       var(--page-radial-gold),
-      transparent 24%
+      transparent 55%
     ),
     radial-gradient(
-      circle at top right,
+      ellipse 70% 50% at 92% 0%,
       var(--page-radial-green),
-      transparent 22%
-    ), linear-gradient(180deg, var(--page-bg) 0%, var(--page-bg-end) 100%);
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 55% 35% at 50% 102%,
+      rgba(13, 122, 92, 0.07),
+      transparent 65%
+    ),
+    linear-gradient(180deg, var(--page-bg) 0%, var(--page-bg-end) 100%);
   background-color: var(--page-bg);
+  color: var(--text-primary);
+  overflow-x: clip;
+}
+
+/* Refined selection — subtle brand tint */
+::selection {
+  background: rgba(13, 122, 92, 0.18);
   color: var(--text-primary);
 }
 
-::selection {
-  background: var(--brand-soft);
-  color: var(--text-primary);
+.dark ::selection {
+  background: rgba(95, 203, 172, 0.22);
+}
+
+/* Unified focus-visible ring */
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ---------------------------------- */
+/* Keyframe library                    */
+/* ---------------------------------- */
+
+/* Used by count-up numbers in status section */
+@keyframes count-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Background breathing glow for hero */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%      { opacity: 0.9;  transform: scale(1.07); }
+}
+
+/* Subtle accordion slide — used by FAQ */
+@keyframes accordion-down {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Horizontal shimmer sweep — CSS fallback for card hovers */
+@keyframes shimmer-sweep {
+  0%   { transform: translateX(-110%) skewX(-14deg); }
+  100% { transform: translateX(210%) skewX(-14deg); }
 }

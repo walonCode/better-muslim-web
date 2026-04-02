@@ -42,7 +42,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
-      <body className='min-h-full overflow-x-clip font-["Avenir_Next","Segoe_UI","Helvetica_Neue",Helvetica,Arial,sans-serif] text-[var(--text-primary)]'>
+      <body suppressHydrationWarning className='min-h-full overflow-x-clip font-["Avenir_Next","Segoe_UI","Helvetica_Neue",Helvetica,Arial,sans-serif] text-[var(--text-primary)]'>
         <ThemeProvider>
           <div className="flex min-h-screen flex-col overflow-x-clip">
             <SiteHeader />

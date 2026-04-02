@@ -1,10 +1,80 @@
 "use client";
 
-import { motion } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
+import { useEffect, useRef } from "react";
 import { statusItems } from "@/components/home/home-data";
 import { Reveal } from "@/components/motion/reveal";
 import { Section } from "@/components/section";
 import { Card } from "@/components/ui/card";
+
+/** Extracts a leading integer from a value string like "4.8★" → 48, "3 pillars" → 3 */
+function parseLeadingNumber(value: string): { prefix: string; num: number; suffix: string } | null {
+  // Match patterns like "4.8" "3" "100"
+  const match = value.match(/^(\D*?)(\d+\.?\d*)(.*)$/);
+  if (!match) return null;
+  return {
+    prefix: match[1] ?? "",
+    num: parseFloat(match[2]),
+    suffix: match[3] ?? "",
+  };
+}
+
+function AnimatedStat({
+  value,
+  shouldReduceMotion,
+}: {
+  value: string;
+  shouldReduceMotion: boolean;
+}) {
+  const parsed = parseLeadingNumber(value);
+  const ref = useRef<HTMLParagraphElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.6 });
+
+  const motionValue = useMotionValue(0);
+  const spring = useSpring(motionValue, {
+    stiffness: 55,
+    damping: 14,
+    mass: 0.85,
+  });
+  const displayed = useTransform(spring, (v) => {
+    if (!parsed) return value;
+    const isDecimal = parsed.num % 1 !== 0;
+    const formatted = isDecimal ? v.toFixed(1) : Math.round(v).toString();
+    return `${parsed.prefix}${formatted}${parsed.suffix}`;
+  });
+
+  useEffect(() => {
+    if (isInView && parsed && !shouldReduceMotion) {
+      motionValue.set(parsed.num);
+    }
+  }, [isInView, parsed, motionValue, shouldReduceMotion]);
+
+  if (!parsed || shouldReduceMotion) {
+    return (
+      <p
+        ref={ref}
+        className="mt-3 text-[1.5rem] font-bold leading-none"
+      >
+        {value}
+      </p>
+    );
+  }
+
+  return (
+    <motion.p
+      ref={ref}
+      className="mt-3 text-[1.5rem] font-bold leading-none tabular-nums"
+    >
+      {displayed}
+    </motion.p>
+  );
+}
 
 export function StatusSection({
   shouldReduceMotion,
@@ -34,7 +104,7 @@ export function StatusSection({
               initial={
                 shouldReduceMotion
                   ? false
-                  : { opacity: 0, y: 24, scale: 0.96, filter: "blur(8px)" }
+                  : { opacity: 0, y: 28, scale: 0.95, filter: "blur(10px)" }
               }
               whileInView={
                 shouldReduceMotion
@@ -45,18 +115,32 @@ export function StatusSection({
               whileHover={
                 shouldReduceMotion
                   ? undefined
-                  : { y: -8, rotate: index === 1 ? 0.5 : -0.5, scale: 1.015 }
+                  : {
+                      y: -10,
+                      rotate: index === 1 ? 0.5 : -0.5,
+                      scale: 1.018,
+                    }
               }
-              transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                default: { duration: 0.42, ease: [0.16, 1, 0.3, 1] },
+                opacity: { delay: index * 0.08 },
+                y: { delay: index * 0.08 },
+                scale: { delay: index * 0.08 },
+                filter: { delay: index * 0.08 },
+              }}
             >
-              <Card className="group relative h-full overflow-hidden bg-[linear-gradient(180deg,var(--surface),var(--surface-strong))] p-6 hover:border-[var(--brand-soft)] hover:shadow-[0_28px_80px_rgba(var(--shadow-brand),0.14)]">
-                <div className="pointer-events-none absolute -right-8 top-0 h-20 w-20 rounded-full bg-[var(--brand-soft)] opacity-0 blur-2xl transition duration-500 group-hover:opacity-100" />
+              <Card className="group relative h-full overflow-hidden bg-[linear-gradient(160deg,var(--surface),var(--surface-strong))] p-6 hover:border-[var(--brand-soft)] hover:shadow-[0_30px_90px_rgba(var(--shadow-brand),0.16)]">
+                {/* Corner glow orb */}
+                <div className="pointer-events-none absolute -right-8 top-0 h-24 w-24 rounded-full bg-[var(--brand-soft)] opacity-0 blur-2xl transition duration-500 group-hover:opacity-100" />
+                {/* Shimmer sweep on hover */}
+                <div className="pointer-events-none absolute inset-x-[-20%] top-0 h-20 -translate-y-12 rotate-[10deg] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.28),transparent)] opacity-0 blur-sm transition-all duration-700 group-hover:translate-y-32 group-hover:opacity-100 dark:bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent)]" />
                 <p className="text-[0.78rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
                   {item.title}
                 </p>
-                <p className="mt-3 text-[1.5rem] font-bold leading-none">
-                  {item.value}
-                </p>
+                <AnimatedStat
+                  value={item.value}
+                  shouldReduceMotion={shouldReduceMotion}
+                />
                 <p className="mt-3 text-[0.98rem] leading-[1.75] text-[var(--text-secondary)]">
                   {item.description}
                 </p>

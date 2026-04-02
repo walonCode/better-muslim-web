@@ -32,15 +32,18 @@ export function Float({
     <motion.div
       className={className}
       animate={{
-        x: x ? [0, x, x * -0.35, 0] : 0,
-        y: [0, -y, y * 0.45, 0],
-        rotate: rotate ? [0, rotate, rotate * -0.35, 0] : 0,
+        // Organic 4-point path — feels naturally floaty rather than mechanical
+        x: x ? [0, x * 0.6, x, x * 0.4, 0] : 0,
+        y: [0, -y * 0.5, -y, -y * 0.35, 0],
+        rotate: rotate ? [0, rotate * 0.4, rotate, rotate * 0.35, 0] : 0,
       }}
       transition={{
         duration,
         delay,
         repeat: Number.POSITIVE_INFINITY,
-        ease: [0.42, 0, 0.2, 1],
+        // Custom spring-like ease: slow out, float, spring back
+        ease: [0.37, 0, 0.63, 1],
+        times: [0, 0.28, 0.55, 0.78, 1],
       }}
     >
       {children}

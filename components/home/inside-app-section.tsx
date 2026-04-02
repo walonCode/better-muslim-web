@@ -242,8 +242,8 @@ function MobileShowcaseStory({
                 alt={item.alt}
                 width={688}
                 height={1532}
-                loading={index < 2 ? "eager" : "lazy"}
-                priority={index < 2}
+                loading={index < 3 ? "eager" : "lazy"}
+                priority={index < 3}
                 className="h-auto w-full object-contain mix-blend-multiply drop-shadow-[0_18px_42px_rgba(var(--shadow-strong),0.18)]"
                 sizes="(max-width: 768px) 80vw, (max-width: 1200px) 44vw, 20rem"
               />
@@ -466,8 +466,8 @@ function PinnedStageImage({
           alt={item.alt}
           width={688}
           height={1532}
-          loading={index < 2 ? "eager" : "lazy"}
-          priority={index < 2}
+          loading={index < 3 ? "eager" : "lazy"}
+          priority={index < 3}
           className="h-auto w-full object-contain mix-blend-multiply drop-shadow-[0_24px_54px_rgba(var(--shadow-strong),0.2)]"
           sizes="(max-width: 1200px) 42vw, 23rem"
         />

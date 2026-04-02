@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, GraduationCap, Settings } from "lucide-react";
+import { Bell, BookOpen, GraduationCap, Home } from "lucide-react";
 import React from "react";
 import { featureCards } from "@/components/home/home-data";
 import { Reveal } from "@/components/motion/reveal";
@@ -9,10 +9,18 @@ import { Section } from "@/components/section";
 import { Card } from "@/components/ui/card";
 
 const featureIcons = [
-  BookOpen, // dashboard
-  BookOpen, // quran tools
+  Home,        // dashboard
+  BookOpen,    // quran tools
   GraduationCap, // learn
-  Settings, // widgets
+  Bell,        // widgets / reminders
+];
+
+// Subtle icon colour accents per card — adds personality like Notion / Linear
+const iconAccents = [
+  { bg: "rgba(13,122,92,0.14)", color: "var(--brand-strong)" },
+  { bg: "rgba(184,148,62,0.16)", color: "var(--accent)" },
+  { bg: "rgba(13,122,92,0.14)", color: "var(--brand-strong)" },
+  { bg: "rgba(184,148,62,0.16)", color: "var(--accent)" },
 ];
 
 export function FeaturesSection({
@@ -35,47 +43,86 @@ export function FeaturesSection({
           reminders, and local device control in one calmer interface.
         </p>
       </Reveal>
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-        {featureCards.map((feature, index) => (
-          <Reveal key={feature.title} delay={index * 0.08}>
+      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        {featureCards.map((feature, index) => {
+          const accent = iconAccents[index] ?? iconAccents[0];
+          const IconComponent = featureIcons[index] ?? BookOpen;
+          return (
             <motion.div
+              key={feature.title}
               initial={
                 shouldReduceMotion
                   ? false
-                  : { opacity: 0, y: 28, rotateX: 10, filter: "blur(10px)" }
+                  : {
+                      opacity: 0,
+                      y: 36,
+                      scale: 0.95,
+                      rotateX: 12,
+                      filter: "blur(12px)",
+                    }
               }
               whileInView={
                 shouldReduceMotion
                   ? undefined
-                  : { opacity: 1, y: 0, rotateX: 0, filter: "blur(0px)" }
+                  : {
+                      opacity: 1,
+                      y: 0,
+                      scale: 1,
+                      rotateX: 0,
+                      filter: "blur(0px)",
+                    }
               }
-              viewport={{ once: true, amount: 0.28 }}
+              viewport={{ once: true, amount: 0.24 }}
               whileHover={
                 shouldReduceMotion
                   ? undefined
                   : {
-                      y: -10,
-                      rotate: index % 2 === 0 ? -0.8 : 0.8,
-                      scale: 1.015,
+                      y: -12,
+                      rotate: index % 2 === 0 ? -0.9 : 0.9,
+                      scale: 1.018,
                     }
               }
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                default: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+                opacity: { delay: index * 0.09, duration: 0.55 },
+                y: { delay: index * 0.09, duration: 0.55 },
+                scale: { delay: index * 0.09, duration: 0.55 },
+                filter: { delay: index * 0.09, duration: 0.55 },
+                rotateX: { delay: index * 0.09, duration: 0.55 },
+              }}
+              style={{ transformPerspective: 1200 }}
             >
-              <Card className="group relative flex min-h-[15.5rem] flex-col overflow-hidden border-[var(--border)] bg-[linear-gradient(180deg,var(--surface),var(--surface-strong))] p-6 shadow-[0_20px_70px_rgba(var(--shadow-strong),0.12)] hover:border-[var(--brand-soft)] hover:shadow-[0_30px_90px_rgba(var(--shadow-brand),0.16)] max-md:rounded-[1.35rem] max-md:p-5">
-                <div className="pointer-events-none absolute inset-x-[-20%] top-0 h-24 -translate-y-10 rotate-[8deg] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.28),transparent)] opacity-0 transition duration-500 group-hover:translate-y-28 group-hover:opacity-100 dark:bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent)]" />
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--brand-soft)] text-[var(--brand-strong)]">
-                  {React.createElement(featureIcons[index], { size: 24 })}
-                </div>
-                <h3 className="mb-3 text-[1.15rem] font-bold">
+              <Card className="group relative flex min-h-[16rem] flex-col overflow-hidden border-[var(--border)] bg-[linear-gradient(160deg,var(--surface),var(--surface-strong))] p-6 shadow-[0_20px_70px_rgba(var(--shadow-strong),0.1)] hover:border-[var(--brand-soft)] hover:shadow-[0_36px_100px_rgba(var(--shadow-brand),0.18)] max-md:rounded-[1.35rem] max-md:p-5 transition-shadow duration-300">
+                {/* Shimmer sweep on hover */}
+                <div className="pointer-events-none absolute inset-x-[-20%] top-0 h-24 -translate-y-12 rotate-[10deg] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.32),transparent)] opacity-0 blur-sm transition-all duration-700 group-hover:translate-y-36 group-hover:opacity-100 dark:bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent)]" />
+                {/* Bottom glow */}
+                <div
+                  className="pointer-events-none absolute bottom-0 left-1/2 h-16 w-32 -translate-x-1/2 translate-y-8 rounded-full opacity-0 blur-2xl transition duration-500 group-hover:opacity-100"
+                  style={{ background: accent.bg }}
+                />
+                {/* Icon */}
+                <motion.div
+                  whileHover={
+                    shouldReduceMotion
+                      ? undefined
+                      : { scale: 1.1, rotate: -6 }
+                  }
+                  transition={{ type: "spring", stiffness: 280, damping: 18 }}
+                  className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl shadow-[0_4px_14px_rgba(0,0,0,0.06)]"
+                  style={{ background: accent.bg, color: accent.color }}
+                >
+                  <IconComponent size={22} strokeWidth={2} />
+                </motion.div>
+                <h3 className="mb-2.5 text-[1.12rem] font-bold leading-[1.25] text-[var(--text-primary)]">
                   {feature.title}
                 </h3>
-                <p className="text-[1.02rem] leading-[1.8] text-[var(--text-secondary)]">
+                <p className="text-[0.98rem] leading-[1.8] text-[var(--text-secondary)]">
                   {feature.description}
                 </p>
               </Card>
             </motion.div>
-          </Reveal>
-        ))}
+          );
+        })}
       </div>
     </Section>
   );
