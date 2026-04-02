@@ -11,16 +11,16 @@ import { Button } from "@/components/ui/button";
 
 const heroTrustStats = [
   {
-    label: "Preview Status",
-    value: "Android live now",
+    label: "Home Dashboard",
+    value: "Prayer + resume + goals",
   },
   {
-    label: "Works Without",
-    value: "Account setup",
+    label: "Quran Tools",
+    value: "Audio + tafsir + reciters",
   },
   {
-    label: "Built Around",
-    value: "Arabic mastery",
+    label: "Learn Section",
+    value: "Arabic drills + tests",
   },
   {
     label: "Daily Support",
@@ -71,12 +71,13 @@ export function HeroSection({
             Better Muslim
           </div>
           <div className="space-y-5">
-            <h1 className='max-w-[11ch] font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(3.2rem,8vw,6rem)] leading-[0.95] font-bold max-md:max-w-none'>
-              A calm Muslim companion for everyday worship.
+            <h1 className='max-w-[12ch] font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(3.2rem,8vw,6rem)] leading-[0.95] font-bold max-md:max-w-none'>
+              A calmer Muslim app for the habits you actually return to.
             </h1>
             <p className="text-[1.02rem] leading-[1.8] text-[var(--text-secondary)]">
-              Prayer times, Quran and Hadith reading, structured learning,
-              widgets, and reminders in one focused app.
+              Check the next prayer, continue Quran reading, study Hadith and
+              Arabic, use home-screen widgets, and tune reminders without
+              switching between disconnected tools.
             </p>
           </div>
           <motion.div
@@ -294,7 +295,7 @@ export function HeroSection({
                     Continue reading
                   </p>
                   <p className="mt-1 text-[1.05rem] font-semibold text-[var(--text-primary)]">
-                    Al-Baqara
+                    Surah Al-Baqara
                   </p>
                 </div>
               </Float>
@@ -305,10 +306,10 @@ export function HeroSection({
               >
                 <div className="rounded-[1.25rem] border border-[var(--border-faint)] bg-[var(--hero-card-bg)] px-5 py-3 shadow-[0_16px_32px_rgba(var(--shadow-strong),0.08)]">
                   <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[var(--hero-card-muted)]">
-                    Saved on device
+                    Quran tools
                   </p>
                   <p className="mt-1 text-[1.05rem] font-semibold text-[var(--text-primary)]">
-                    Offline-first data
+                    Audio, tafsir, goals
                   </p>
                 </div>
               </Float>
@@ -319,10 +320,10 @@ export function HeroSection({
               >
                 <div className="rounded-[1.25rem] border border-[var(--border-faint)] bg-[var(--hero-card-bg)] px-5 py-3 shadow-[0_16px_32px_rgba(var(--shadow-strong),0.08)]">
                   <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[var(--hero-card-muted)]">
-                    Daily flow
+                    Home dashboard
                   </p>
                   <p className="mt-1 text-[1.05rem] font-semibold text-[var(--text-primary)]">
-                    Prayer, Quran, Widgets
+                    Prayer, streak, resume
                   </p>
                 </div>
               </Float>
@@ -332,8 +333,11 @@ export function HeroSection({
                 y={11}
               >
                 <div className="rounded-[1.25rem] border border-[var(--border-faint)] bg-[var(--hero-card-bg)] px-5 py-3 shadow-[0_16px_32px_rgba(var(--shadow-strong),0.08)]">
-                  <p className="text-[0.95rem] font-medium text-[var(--text-primary)]">
-                    Reminders and streaks
+                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[var(--hero-card-muted)]">
+                    Saved on device
+                  </p>
+                  <p className="mt-1 text-[1.05rem] font-semibold text-[var(--text-primary)]">
+                    Widgets, backups, reminders
                   </p>
                 </div>
               </Float>
@@ -428,8 +432,8 @@ export function HeroSection({
                       }}
                     />
                     <Image
-                      src="/screenshots/showcase-screen-03.png"
-                      alt="Better Muslim app home screen preview"
+                      src="/screenshots/showcase-screen-01.png"
+                      alt="Better Muslim home dashboard preview"
                       width={688}
                       height={1532}
                       sizes="(max-width: 768px) 80vw, (max-width: 1280px) 40vw, 35rem"

@@ -1,95 +1,101 @@
 export const featureCards = [
   {
-    title: "Daily companion, not just a reader",
+    title: "A dashboard built for repeat visits",
     description:
-      "Start from a home dashboard built around prayer times, next actions, streaks, reminders, and the parts of the app you actually revisit.",
+      "Open to your next prayer, continue-reading state, streaks, Quran goals, Arabic mastery, and quick actions instead of digging through tabs.",
   },
   {
-    title: "Quran that fits real reading habits",
+    title: "Quran tools that go deeper",
     description:
-      "Read by surah or juz with Arabic text, translation, transliteration, bookmarks, and continue-reading support.",
+      "Read by surah or juz with Arabic text, translation, transliteration, bookmarks, sharing, audio reciters, tafsir, and study or player flows.",
   },
   {
-    title: "Widgets that stay useful all day",
+    title: "Learn that keeps your place",
     description:
-      "Add Prayer, Hadith, Dua, or Verse widgets with rotating content, quick open actions, and copy/share support for daily reflection.",
+      "Move through Salah, Duas, Sunnah, and Arabic with saved lessons, drills, weekly mastery tests, and resume support across modules.",
   },
   {
-    title: "Notifications you can actually tune",
+    title: "Widgets, reminders, and local control",
     description:
-      "Control prayer, quiz, and daily inspiration reminders with clear permission status, scheduling controls, and action buttons like snooze.",
+      "Use Prayer, Hadith, Dua, and Verse widgets, tune prayer, quiz, and learning reminders, and keep caches, settings, and backups under your control.",
   },
 ] as const;
 
 export const highlights = [
-  "Prayer times, progress, streaks, widgets, and resume flows in one place",
-  "Quran, Hadith, and Learn in a calmer daily-use layout",
-  "Local bookmarks, backups, reader settings, and reminder preferences stored on device",
+  "Next prayer, continue-reading, streaks, Quran goals, and quick actions live on one dashboard",
+  "Quran, Hadith, and Learn all keep your place so daily study feels lighter to return to",
+  "Widgets, reminders, offline cache, and backup and restore make the app practical between sessions",
 ] as const;
 
 export const trustItems = [
   "No account required",
-  "Offline-first",
-  "Ad-free",
+  "Offline-first where practical",
+  "Widgets + reminders",
 ] as const;
 
 export const statusItems = [
   {
     title: "Android preview",
     value: "Available now",
-    description: "Install the current Expo build directly and start testing.",
+    description:
+      "Install the current Android build and test prayer, reading, study tools, and widgets today.",
   },
   {
     title: "iPhone release",
     value: "Waitlist open",
-    description: "Join the iPhone list and get emailed when it goes live.",
+    description:
+      "Join the iPhone waitlist and get emailed when the App Store release is ready.",
   },
   {
-    title: "Core experience",
-    value: "Ready today",
+    title: "Current build",
+    value: "Usable today",
     description:
-      "Prayer, Quran, Hadith, Learn, reminders, and home widgets are available now.",
+      "Prayer, Quran, Hadith, Learn modules, Arabic practice, reminders, widgets, and local backups are already in the app.",
   },
 ] as const;
 
 export const insideCards = [
   {
     title: "Home dashboard",
-    body: "See your next prayer, current streak, and where to resume without digging through tabs.",
+    body: "See your next prayer, current streak, resume point, and goals without digging through tabs.",
   },
   {
-    title: "Widget modes for daily rotation",
-    body: "Switch between Prayer, Hadith, Dua, and Verse widgets with snapshots that refresh through the day and open back into the app.",
+    title: "Quran tools for deeper study",
+    body: "Move from calmer reading into audio, reciters, tafsir, and Quran study tools without leaving the app flow.",
   },
   {
     title: "Reminders with real control",
-    body: "Configure prayer, quiz, and daily inspiration reminders, then use notification actions like snooze or done without losing your routine.",
+    body: "Configure prayer, quiz, and learning reminders, then keep progress, settings, and backups local to the device.",
   },
 ] as const;
 
 export const socialProofItems = [
   {
-    title: "Built for repeat use",
-    body: "The app is shaped around the flows people come back for every day: prayer awareness, reading, saving progress, and picking up where they left off.",
+    title: "Several daily loops, one app",
+    body: "Prayer awareness, continue-reading, Hadith browsing, Arabic drills, goals, and reminders live together, so the app earns repeat use instead of depending on novelty.",
   },
   {
-    title: "Recent updates are practical",
-    body: "Recent builds focused on daily behavior: improved reminder scheduling, clearer notification settings, and richer widget modes with share actions.",
+    title: "Depth where the routine needs it",
+    body: "The current build already includes reciter selection, tafsir, study tools, widget modes, reminder controls, offline cache, and backup and restore instead of stopping at basic reading screens.",
   },
 ] as const;
 
 export const credibilityPrinciples = [
   {
-    title: "Built around daily use",
-    body: "The product is shaped around recurring habits: prayer awareness, reading, Arabic mastery, reminders, and picking up where you left off.",
+    title: "No forced account",
+    body: "You can use the core experience without signing up, and reading state, settings, and progress stay on device.",
+  },
+  {
+    title: "Offline-first where practical",
+    body: "Cached Quran and Hadith data plus bundled Learn content keep the app useful even with weak connectivity.",
+  },
+  {
+    title: "Local control and backup",
+    body: "Settings, widgets, reminder preferences, and reading state can be backed up and restored without turning the product into an account-first service.",
   },
   {
     title: "Transparent preview stage",
-    body: "Android preview access is open now, iPhone waitlist is active, and early feedback is helping shape what gets improved next.",
-  },
-  {
-    title: "Respectful by default",
-    body: "No forced account creation, offline-first behavior where practical, and a calmer interface instead of crowded feature overload.",
+    body: "Android preview access is open now, iPhone waitlist is active, and early feedback is shaping what gets refined next.",
   },
 ] as const;
 
@@ -97,7 +103,7 @@ export const faqItems = [
   {
     question: "Is Better Muslim live yet?",
     answer:
-      "Android preview testing is available now. iPhone users can join the waitlist and get notified when the release is ready.",
+      "Android preview testing is available now. iPhone users can join the waitlist and get notified when the App Store release is ready.",
   },
   {
     question: "Do I need an account?",
@@ -105,21 +111,26 @@ export const faqItems = [
       "No. The core app experience is designed to work without account creation, and your reading state stays local on device.",
   },
   {
+    question: "What can I do in the current build?",
+    answer:
+      "Use prayer times, Quran and Hadith reading, Learn modules, Arabic drills and weekly tests, Quran goals and study tools, widgets, reminders, and backups.",
+  },
+  {
     question: "Does it work offline?",
     answer:
-      "Yes, where practical. Quran, Hadith, and Learn content use offline-first behavior and local caching to keep the app useful with weak connectivity.",
+      "Yes, where practical. Learn content is bundled locally, Quran and Hadith use local cache, and the core reading flows remain useful with weak connectivity.",
+  },
+  {
+    question: "What do widgets and reminders support?",
+    answer:
+      "Widgets currently support Prayer, Hadith, Dua, and Verse. Reminders cover prayer, quiz, and learning flows with configurable settings.",
   },
   {
     question: "What should preview testers expect?",
     answer:
-      "The Android preview is for early feedback. You may see changes between builds, and older preview installs may need to be removed if Android reports a signing conflict.",
-  },
-  {
-    question: "What’s new in the latest preview updates?",
-    answer:
-      "Recent updates added stronger notification controls, widget mode improvements across prayer/hadith/dua/verse, and copy/share actions for daily content widgets.",
+      "The Android preview is still early. Builds may change quickly, and older installs may need to be replaced if Android reports a signing mismatch.",
   },
 ] as const;
 
 export const androidPreviewUrl =
-  "https://expo.dev/accounts/walon/projects/better-muslim/builds/2a6291ae-e90e-4178-81db-dcfb7623e3fe";
+  "https://expo.dev/accounts/walon/projects/better-muslim/builds/c3eea054-9075-4a9c-9a45-ee97e01a62fb";

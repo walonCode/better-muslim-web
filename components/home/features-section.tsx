@@ -15,15 +15,15 @@ export function FeaturesSection({
     <Section id="features" className="pt-8">
       <Reveal className="mx-auto mb-10 max-w-[46rem] text-center max-md:mb-6">
         <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
-          Why it stands out
+          What You Can Use
         </div>
         <h2 className='mt-2 font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(2.1rem,5vw,3.6rem)] leading-none font-bold'>
-          Built around daily Muslim habits, not a cluttered feature dump.
+          This is already more than a simple reader.
         </h2>
         <p className="mt-3 text-[1.02rem] leading-[1.8] text-[var(--text-secondary)]">
-          The app already supports the core habits people come back for: prayer
-          awareness, reading, saving progress, revisiting material, and learning
-          in a calmer interface.
+          The current build already covers prayer awareness, Quran reading,
+          Hadith browsing, structured learning, Arabic practice, widgets,
+          reminders, and local device control in one calmer interface.
         </p>
       </Reveal>
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">

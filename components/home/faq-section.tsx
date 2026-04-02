@@ -13,7 +13,7 @@ export function FaqSection() {
           FAQ
         </div>
         <h2 className='mt-2 font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(2rem,4.8vw,3.3rem)] leading-none font-bold'>
-          The questions people ask before trying it.
+          The questions people ask before installing.
         </h2>
       </Reveal>
       <div className="grid gap-4">

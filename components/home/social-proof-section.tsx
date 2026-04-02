@@ -15,11 +15,16 @@ export function SocialProofSection({
     <Section className="pt-6">
       <Reveal className="mx-auto mb-8 max-w-[44rem] text-center">
         <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
-          Why early users stick
+          Why It Stays Useful
         </div>
         <h2 className='mt-2 font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(2rem,4.8vw,3.3rem)] leading-none font-bold'>
-          Built for daily use, not one impressive screenshot.
+          The value is in the repeat-use loops.
         </h2>
+        <p className="mt-3 text-[1rem] leading-[1.8] text-[var(--text-secondary)]">
+          Better Muslim works best as a daily-use product, because the prayer,
+          reading, learning, and reminder flows reinforce each other instead of
+          sitting in separate apps.
+        </p>
       </Reveal>
       <div className="grid gap-4 md:grid-cols-2">
         {socialProofItems.map((item, index) => (

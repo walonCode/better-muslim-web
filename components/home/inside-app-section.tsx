@@ -16,38 +16,40 @@ const SHOWCASE_ITEMS = [
   {
     src: "/screenshots/showcase-screen-01.png",
     alt: "Better Muslim home dashboard screen",
-    kicker: "Daily Focus",
-    title: "See what matters first.",
-    body: "Prayer awareness, your current streak, and resume points are surfaced immediately so your routine starts without friction.",
-    proof: "Prayer awareness and resume state above the fold",
-    note: "Built for repeat visits, not hunting through tabs.",
+    kicker: "Home Dashboard",
+    title: "Open to the next thing that matters.",
+    body: "The home screen surfaces your next prayer, streak, continue-reading state, and quick routes into Quran goals or Arabic practice.",
+    proof: "Prayer, resume, streaks, and goals on the first screen",
+    note: "Built for repeat visits, not menu hunting.",
   },
   {
     src: "/screenshots/showcase-screen-02.png",
     alt: "Better Muslim Quran and reading screen",
-    kicker: "Read Better",
-    title: "Quran and Hadith with calmer reading flow.",
-    body: "Large readable text, thoughtful spacing, and quick resume behavior make long-term reading feel consistent and lightweight.",
-    proof: "Cleaner typography, calmer spacing, less reader fatigue",
-    note: "Designed so longer reading sessions still feel light.",
+    kicker: "Quran Reading",
+    title: "Go from reading to study without changing apps.",
+    body: "Surah and juz flows, bookmarks, translation, transliteration, sharing, and calmer typography make the Quran and Hadith sections easier to revisit daily.",
+    proof:
+      "Reading flow first, with room for bookmarks, sharing, and deeper study",
+    note: "The app keeps your place so each session starts lighter.",
   },
   {
     src: "/screenshots/showcase-screen-03.png",
     alt: "Better Muslim learning and settings screen",
-    kicker: "Learn Section",
-    title: "Structured learning, including Arabic mastery.",
-    body: "Move through practical Islamic learning modules with clear progression, then come back exactly where you stopped.",
-    proof: "Arabic mastery and settings live inside one focused flow",
-    note: "Learning modules are practical, not buried under menus.",
+    kicker: "Learn + Arabic",
+    title: "Structured learning with real progression.",
+    body: "Move through Learn modules, Arabic drills, weekly mastery tests, saved lessons, and Quran study tools while keeping your progress local to the device.",
+    proof:
+      "Arabic practice, saved lessons, and study tools in one focused flow",
+    note: "Learning stays practical instead of getting buried under menus.",
   },
   {
     src: "/screenshots/showcase-screen-04.png",
     alt: "Better Muslim reminders and widgets screen",
     kicker: "Stay Consistent",
-    title: "Reminders and widgets that support daily habits.",
-    body: "Set reminders, keep habits visible from your home screen, and stay anchored to your daily worship routine.",
-    proof: "Daily habit support without account setup friction",
-    note: "Useful at a glance, not just when the app is open.",
+    title: "Widgets and reminders that stay useful between sessions.",
+    body: "Use Prayer, Hadith, Dua, and Verse widgets, configure prayer or study reminders, and keep daily habits visible even when the app is closed.",
+    proof: "Home-screen support without forcing account setup",
+    note: "Useful at a glance, not only when the app is open.",
   },
 ] as const;
 
@@ -74,11 +76,12 @@ export function InsideAppSection() {
           Inside The App
         </div>
         <h2 className='mt-2 font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(2.2rem,5vw,4rem)] leading-[0.96] font-bold'>
-          One focused screen at a time.
+          See the actual product flow.
         </h2>
         <p className="mt-4 text-[1.04rem] leading-[1.85] text-[var(--text-secondary)]">
-          The experience is designed like a product story: clear screens, clear
-          purpose, and enough space to let each feature breathe.
+          These screens map to features already present in the app: prayer,
+          reading, study tools, reminders, and widgets with enough space to stay
+          calm.
         </p>
       </Reveal>
 

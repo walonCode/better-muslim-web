@@ -18,16 +18,16 @@ export function CredibilitySection({
           Built With Intention
         </div>
         <h2 className='mt-2 font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(2.1rem,5vw,3.6rem)] leading-none font-bold'>
-          Credibility without pretending we are bigger than we are.
+          Trust should come from product behavior.
         </h2>
         <p className="mt-3 text-[1.02rem] leading-[1.8] text-[var(--text-secondary)]">
-          Better Muslim is still in early release, so the trust comes from how
-          the product is built, how clearly the preview stage is explained, and
-          how focused the experience already is.
+          Better Muslim is still early, so the credibility has to come from
+          clear product boundaries, transparent release status, and respectful
+          defaults that already exist in the app.
         </p>
       </Reveal>
 
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {credibilityPrinciples.map((item, index) => (
           <Reveal key={item.title} delay={index * 0.08}>
             <motion.div

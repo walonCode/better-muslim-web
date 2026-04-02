@@ -13,6 +13,19 @@ export function StatusSection({
 }) {
   return (
     <Section className="pt-4">
+      <Reveal className="mx-auto mb-8 max-w-[44rem] text-center">
+        <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
+          Available Now
+        </div>
+        <h2 className='mt-2 font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(2rem,4.8vw,3.3rem)] leading-none font-bold'>
+          Early release, but already usable.
+        </h2>
+        <p className="mt-3 text-[1rem] leading-[1.8] text-[var(--text-secondary)]">
+          Android preview access is open now, the iPhone waitlist is active, and
+          the current build already covers the core routines people return to
+          every day.
+        </p>
+      </Reveal>
       <Reveal>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {statusItems.map((item, index) => (
