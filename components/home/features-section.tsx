@@ -1,10 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { BookOpen, GraduationCap, Settings } from "lucide-react";
+import React from "react";
 import { featureCards } from "@/components/home/home-data";
 import { Reveal } from "@/components/motion/reveal";
 import { Section } from "@/components/section";
 import { Card } from "@/components/ui/card";
+
+const featureIcons = [
+  BookOpen, // dashboard
+  BookOpen, // quran tools
+  GraduationCap, // learn
+  Settings, // widgets
+];
 
 export function FeaturesSection({
   shouldReduceMotion,
@@ -54,6 +63,9 @@ export function FeaturesSection({
             >
               <Card className="group relative flex min-h-[15.5rem] flex-col overflow-hidden border-[var(--border)] bg-[linear-gradient(180deg,var(--surface),var(--surface-strong))] p-6 shadow-[0_20px_70px_rgba(var(--shadow-strong),0.12)] hover:border-[var(--brand-soft)] hover:shadow-[0_30px_90px_rgba(var(--shadow-brand),0.16)] max-md:rounded-[1.35rem] max-md:p-5">
                 <div className="pointer-events-none absolute inset-x-[-20%] top-0 h-24 -translate-y-10 rotate-[8deg] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.28),transparent)] opacity-0 transition duration-500 group-hover:translate-y-28 group-hover:opacity-100 dark:bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent)]" />
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--brand-soft)] text-[var(--brand-strong)]">
+                  {React.createElement(featureIcons[index], { size: 24 })}
+                </div>
                 <h3 className="mb-3 text-[1.15rem] font-bold">
                   {feature.title}
                 </h3>

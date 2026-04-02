@@ -9,6 +9,7 @@ import { FeaturesSection } from "@/components/home/features-section";
 import { HeroSection } from "@/components/home/hero-section";
 import { androidPreviewUrl } from "@/components/home/home-data";
 import { InsideAppSection } from "@/components/home/inside-app-section";
+import { NewsletterSection } from "@/components/home/newsletter-section";
 import { SocialProofSection } from "@/components/home/social-proof-section";
 import { StatusSection } from "@/components/home/status-section";
 
@@ -55,6 +56,7 @@ export default function Home() {
         <InsideAppSection />
         <SocialProofSection shouldReduceMotion={shouldReduceMotion} />
         <CredibilitySection shouldReduceMotion={shouldReduceMotion} />
+        <NewsletterSection shouldReduceMotion={shouldReduceMotion} />
         <FaqSection />
       </div>
 
