@@ -36,7 +36,7 @@ export function HeroSection({
   onOpenAndroidPreview: () => void;
 }) {
   return (
-    <Section className="pt-8 md:pt-10">
+    <Section className="pt-10 md:pt-12">
       <Reveal className="mb-7 flex justify-center md:mb-10">
         <div className="flex flex-wrap items-center justify-center gap-2">
           {trustItems.map((item, index) => (
@@ -66,7 +66,7 @@ export function HeroSection({
       </Reveal>
 
       <div className="grid min-h-[min(54rem,calc(100vh-6rem))] items-center gap-10 max-md:min-h-0 max-md:gap-9 md:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)]">
-        <Reveal className="space-y-8">
+        <Reveal className="max-w-[38rem] space-y-8">
           <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
             Better Muslim
           </div>
@@ -74,10 +74,10 @@ export function HeroSection({
             <h1 className='max-w-[12ch] font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(3.2rem,8vw,6rem)] leading-[0.95] font-bold max-md:max-w-none'>
               A calmer Muslim app for the habits you actually return to.
             </h1>
-            <p className="text-[1.02rem] leading-[1.8] text-[var(--text-secondary)]">
-              Check the next prayer, continue Quran reading, study Hadith and
-              Arabic, use home-screen widgets, and tune reminders without
-              switching between disconnected tools.
+            <p className="max-w-[35rem] text-[1.02rem] leading-[1.8] text-[var(--text-secondary)]">
+              Check the next prayer, resume Quran reading, study Hadith and
+              Arabic, keep widgets on your home screen, and tune reminders
+              without juggling separate tools.
             </p>
           </div>
           <motion.div
@@ -96,7 +96,7 @@ export function HeroSection({
               delay: 0.22,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="grid gap-4 md:grid-cols-[auto_auto] md:items-center md:justify-start"
+            className="grid gap-4 md:max-w-max md:grid-cols-[auto_auto] md:items-center md:justify-start"
           >
             <motion.div
               whileHover={
@@ -123,6 +123,26 @@ export function HeroSection({
               <StoreCta platforms={["ios"]} />
             </motion.div>
           </motion.div>
+          <motion.p
+            initial={
+              shouldReduceMotion
+                ? false
+                : { opacity: 0, y: 14, filter: "blur(8px)" }
+            }
+            animate={
+              shouldReduceMotion
+                ? undefined
+                : { opacity: 1, y: 0, filter: "blur(0px)" }
+            }
+            transition={{
+              duration: 0.6,
+              delay: 0.28,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="text-[0.92rem] text-[var(--text-muted)]"
+          >
+            Android preview is available now. iPhone waitlist is open.
+          </motion.p>
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             {heroTrustStats.map((item, index) => (
               <motion.div
@@ -162,7 +182,7 @@ export function HeroSection({
               </motion.div>
             ))}
           </div>
-          <div className="grid gap-4">
+          <div className="grid gap-3">
             {highlights.map((item, index) => (
               <motion.p
                 key={item}
@@ -181,7 +201,7 @@ export function HeroSection({
                   delay: 0.34 + index * 0.1,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="border-l-2 border-[var(--accent-soft)] pl-4 text-[var(--text-secondary)]"
+                className="rounded-r-[1rem] border-l-2 border-[var(--accent-soft)] pl-4 pr-2 text-[var(--text-secondary)]"
               >
                 {item}
               </motion.p>

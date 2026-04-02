@@ -45,7 +45,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="pb-20">
+      <div className="pb-24 md:pb-28">
         <HeroSection
           shouldReduceMotion={shouldReduceMotion}
           onOpenAndroidPreview={() => setIsAndroidModalOpen(true)}

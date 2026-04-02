@@ -70,13 +70,13 @@ export function InsideAppSection() {
   }, []);
 
   return (
-    <Section className="pt-14 md:pt-18">
+    <Section className="pt-14 md:pt-20">
       <Reveal className="mx-auto mb-14 max-w-[44rem] text-center md:mb-20">
         <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
           Inside The App
         </div>
         <h2 className='mt-2 font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(2.2rem,5vw,4rem)] leading-[0.96] font-bold'>
-          See the actual product flow.
+          See how the product actually flows.
         </h2>
         <p className="mt-4 text-[1.04rem] leading-[1.85] text-[var(--text-secondary)]">
           These screens map to features already present in the app: prayer,

@@ -23,8 +23,8 @@ export const featureCards = [
 
 export const highlights = [
   "Next prayer, continue-reading, streaks, Quran goals, and quick actions live on one dashboard",
-  "Quran, Hadith, and Learn all keep your place so daily study feels lighter to return to",
-  "Widgets, reminders, offline cache, and backup and restore make the app practical between sessions",
+  "Quran, Hadith, and Learn all keep your place so daily study is easier to return to",
+  "Widgets, reminders, offline cache, and backup and restore keep the app practical between sessions",
 ] as const;
 
 export const trustItems = [
@@ -50,7 +50,7 @@ export const statusItems = [
     title: "Current build",
     value: "Usable today",
     description:
-      "Prayer, Quran, Hadith, Learn modules, Arabic practice, reminders, widgets, and local backups are already in the app.",
+      "Prayer, Quran, Hadith, Learn modules, Arabic practice, reminders, widgets, and local backup support are already in the app.",
   },
 ] as const;
 
@@ -72,7 +72,7 @@ export const insideCards = [
 export const socialProofItems = [
   {
     title: "Several daily loops, one app",
-    body: "Prayer awareness, continue-reading, Hadith browsing, Arabic drills, goals, and reminders live together, so the app earns repeat use instead of depending on novelty.",
+    body: "Prayer awareness, continue-reading, Hadith browsing, Arabic drills, goals, and reminders live together, so the app keeps earning another visit.",
   },
   {
     title: "Depth where the routine needs it",
@@ -133,4 +133,4 @@ export const faqItems = [
 ] as const;
 
 export const androidPreviewUrl =
-  "https://expo.dev/accounts/walon/projects/better-muslim/builds/c3eea054-9075-4a9c-9a45-ee97e01a62fb";
+  "https://expo.dev/accounts/walon/projects/better-muslim/builds/690afb61-b35d-4e62-bbaf-e7df3e9dd7dc";

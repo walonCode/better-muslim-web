@@ -12,13 +12,13 @@ export function CredibilitySection({
   shouldReduceMotion: boolean;
 }) {
   return (
-    <Section className="pt-8">
+    <Section className="pt-12 md:pt-14">
       <Reveal className="mx-auto mb-10 max-w-[46rem] text-center max-md:mb-6">
         <div className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[var(--brand-strong)]">
           Built With Intention
         </div>
         <h2 className='mt-2 font-["Iowan_Old_Style","Palatino_Linotype","Book_Antiqua",serif] text-[clamp(2.1rem,5vw,3.6rem)] leading-none font-bold'>
-          Trust should come from product behavior.
+          Trust comes from product behavior.
         </h2>
         <p className="mt-3 text-[1.02rem] leading-[1.8] text-[var(--text-secondary)]">
           Better Muslim is still early, so the credibility has to come from
